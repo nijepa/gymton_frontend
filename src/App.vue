@@ -19,6 +19,11 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    background: 
+    radial-gradient(transparent 5%, #444) 
+      calc(50% - .125em) 30% content-box, 
+    linear-gradient(#bbb, #bbb) content-box, 
+    linear-gradient(-90deg, #d0d3d5, #d2d5d7) border-box;
   }
 
   #nav {

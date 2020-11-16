@@ -25,7 +25,7 @@ $option-padding: 4px 10px;
   background: var(--dropdown-background-color);
   background-image: linear-gradient(#2a4e74 60%, #427cb9);
   color: #70baff;
-  top: 13px;
+  //top: 13px;
   user-select: none;
   transition: all 0.7s linear;
   .dropdown-label-container {
@@ -40,7 +40,7 @@ $option-padding: 4px 10px;
       padding: $option-padding;
       .text {
         font-family: 'Play', sans-serif;
-        font-size: 1.5em;
+        font-size: 1.1em;
       }
       .angle-down {
         display: flex;
@@ -74,7 +74,7 @@ $option-padding: 4px 10px;
       padding: $option-padding;
       height: 35px;
       font-family: 'Play', sans-serif;
-      font-size: 1.4em;
+      font-size: 1.1em;
 
       border-bottom: solid 1px #4b6077;
       border-top: solid 1px #6d869d;
@@ -99,8 +99,8 @@ $option-padding: 4px 10px;
 .dropdown.expanded {
   //background: var(--dropdown-expanded-color);
   border: var(--dropdown-border);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.35);
   transition: all 0.7s linear;
-  
 }
 
 // Expand Class - Most important part
