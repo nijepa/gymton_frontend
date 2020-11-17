@@ -365,7 +365,6 @@
     justify-items: center;
   }
 
-
 // PLAY CONTROLS
   .play__wrapper { 
     grid-area: 2 / 1 / 4 / 2;

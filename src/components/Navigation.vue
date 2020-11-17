@@ -298,7 +298,7 @@
     color: #a5d2fd;
     font-size: .7em;
     font-weight: 200;
-    font-variant: unset;
+    font-variant: common-ligatures;
   }
 
   .user__menu {
