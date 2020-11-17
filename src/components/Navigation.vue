@@ -187,7 +187,7 @@
             },
             {
               id: 2,
-              value: "option 2"
+              value: "Favorites"
             },
             {
               id: 3,
@@ -214,7 +214,8 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .header__main {
-    display: block;
+    display: flex;
+    justify-content: center;
     background-image: linear-gradient(#4b6077 60%, #6d869d);
     border-bottom: 1px solid #222c36;
     box-shadow: 1px 1px 8px #5f7c97;
@@ -228,18 +229,19 @@
 
   .flex-wrap {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: auto repeat(2, 1fr);
     justify-content: center;
     justify-items: center;
     align-items: center;
     position: relative;
     font-variant: small-caps;
+    width: 790px;
   }
 
   nav {
     font-weight: 400;
     font-size: 1.2em;
-    margin-right: 1em;
+    //margin-right: 1em;
   }
 
   nav > ul {
@@ -248,7 +250,7 @@
     grid-template-columns: repeat(5, auto);
     justify-content: center;
     justify-items: center;
-    grid-column-gap: 1em;
+    grid-column-gap: .5em;
     margin: 0 auto;
   }
 
@@ -303,13 +305,13 @@
 
   .user__menu {
     background-image: linear-gradient(#2a4e74 60%, #427cb9);
-    // background: #5087bb;
     border-radius: 2px;
     height: 32px;
-    justify-self: left;
-    margin-left: 1em;
+    //justify-self: right;
+    //margin-left: 1em;
     display: flex;
     align-self: center;
+    justify-content: left;
   }
 
   .user__menu > a {

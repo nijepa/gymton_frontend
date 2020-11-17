@@ -4,7 +4,7 @@
     <Navigation msg="Welcome to Your Vue.js App"/>
     <Player />
     <Hero />
-    <Playing />
+    <!-- <Playing /> -->
 
     <Footer />
   </div>
@@ -15,7 +15,7 @@
 import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 import Player from '@/components/Player.vue'
-import Playing from '@/components/Playing.vue'
+// import Playing from '@/components/Playing.vue'
 import Hero from '@/components/Hero.vue'
 
 export default {
@@ -24,7 +24,7 @@ export default {
     Navigation,
     Footer,
     Player,
-    Playing,
+    // Playing,
     Hero
   }
 }

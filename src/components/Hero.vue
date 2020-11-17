@@ -55,9 +55,9 @@
             name: 'Funk',},
           { id: 11,
             name: 'Jazz',},
-          { id: 9,
+          { id: 12,
             name: 'Blues',},
-          { id: 10,
+          { id: 13,
             name: 'R&B',},
         ],
         populars : [
@@ -202,7 +202,7 @@
   }
 
   .genre__content {
-    padding: .3em .2em;
+    padding: .1em .2em 0 .2em;
     cursor: pointer;
   }
 
