@@ -191,7 +191,7 @@
               72% 
             </progress>
             <div class="time">
-              <div class="">{{ currentSeconds | fancyTimeFormat }}</div>
+              <div class="">{{ currentSeconds | fancyTimeFormat }} / -{{ remainSeconds | fancyTimeFormat }}</div>
               <div class="">{{ durationSeconds | fancyTimeFormat }}</div>
             </div>
           </div>
@@ -344,6 +344,7 @@
         isPlaying: false,
         track: null,
         currentSeconds: 0,
+        remainSeconds: 0,
         durationSeconds: 0,
         loaded: true,
         audio: undefined,
@@ -414,8 +415,10 @@
       update () {
         //console.log(e)
         this.currentSeconds = Math.round(this.track.currentTime);
+        this.remainSeconds = Math.round(this.track.duration - this.track.currentTime);
         if (this.percentComplete === 100) {
           this.currentSeconds = 0;
+          this.remainSeconds = 0;
           this.playing = false;
           this.isPlaying = false;
         }
@@ -601,7 +604,8 @@
     transition: all .5s ease-in-out;
   }
 
-  .like {
+  .like,
+  .dislike {
     cursor: pointer;
   }
 
