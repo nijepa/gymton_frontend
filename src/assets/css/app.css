@@ -1,6 +1,14 @@
 :root {
+  --blue-grey-darker: #4b6077;
+  --blue-grey-dark: #4b6077;
+  --blue-grey: #6d869d;
+  --blue-grey-light: #70baff;
+  --blue-grey-lighter: #a5d2fd;
+
+  --blue: #003e81;
+
   /* --yellow: #ffc600; */
-  --blue: #259de2;
+  /* --blue: #259de2; */
   --blue-darkest: #2c3e50;
   --black: #272727;
   --orange: #ffb515;

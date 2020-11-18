@@ -15,13 +15,13 @@
       <div class="footer__nav">
         <ul>
           <li>
-            <a href="#" class="nav__item nav__item_uno">home</a>
+            <a href="#" class="nav__item nav__item_uno">Home</a>
           </li>
           <li>
-            <a href="#" class="nav__item nav__item_due">about</a>
+            <a href="#" class="nav__item nav__item_due">About</a>
           </li>
           <li>
-            <a href="#" class="nav__item nav__item_tre">music</a>
+            <a href="#" class="nav__item nav__item_tre">Music</a>
           </li>
         </ul>
       </div>
@@ -42,8 +42,8 @@
   .footer__main {
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to top, #4b6077 70%, #6d869d);
-    //background-image: linear-gradient(#6d869d, #4b6077 60%);
+    background-image: linear-gradient(to top, var(--blue-grey-dark) 70%, var(--blue-grey));
+    //background-image: linear-gradient(var(--blue-grey), var(--blue-grey-dark) 60%);
     border-top: 1px solid #222c36;
     box-shadow: 1px 1px 8px #5f7c97;
     width: 100%;
@@ -51,7 +51,7 @@
     left: 0;
     top: 0;
     padding: .3em 0;
-    color: #70baff;
+    color:var(--blue-grey-light);
   }
 
   .footer__content {
@@ -80,7 +80,7 @@
   }
 
   .social__icon:hover > path {
-    fill: #a5d2fd;
+    fill: var(--blue-grey-lighter);
     transition: ease-in-out .5s all;
   }
 
@@ -109,14 +109,14 @@
   }
 
   .footer__nav > ul > li > a {
-    color: #70baff;
+    color:var(--blue-grey-light);
     text-decoration: none;
     padding: 0 .3em .1em .3em;
     border-radius: 2px;
   }
 
   .footer__nav > ul > li > a:hover {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
     text-decoration: underline;
     transition: ease-in-out .7s all;
   }

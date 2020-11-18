@@ -24,7 +24,7 @@
   </linearGradient>
   <linearGradient id="7">
    <stop id="Y" stop-color="#437ec6"/>
-   <stop id="Z" offset="1" stop-color="#003e81"/>
+   <stop id="Z" offset="1" stop-color="var(--blue)"/>
   </linearGradient>
   <filter color-interpolation-filters="sRGB" id="8">
    <feGaussianBlur id="a" stdDeviation="8.74984"/>

@@ -5,9 +5,9 @@
 
 // * * * Variables * * *
 $default-border-radius: 2px;
-$default-text-hover-color:#a5d2fd;
+$default-text-hover-color:var(--blue-grey-lighter);
 $default-hover-color: #4d7fad;
-$default-text-color: #70baff;
+$default-text-color:var(--blue-grey-light);
 $option-padding: 4px 10px;
 
 .dropdown {
@@ -25,7 +25,7 @@ $option-padding: 4px 10px;
   color: var(--dropdown-default-text-color);
   background: var(--dropdown-background-color);
   background-image: linear-gradient(#2a4e74 60%, #427cb9);
-  color: #70baff;
+  color:var(--blue-grey-light);
   //top: 13px;
   user-select: none;
   transition: all 0.7s linear;
@@ -57,7 +57,7 @@ $option-padding: 4px 10px;
         border-color: var(--dropdown-default-text-color);
         transform: rotate(45deg);
         transition: all 0.7s;
-        color: #70baff;
+        color:var(--blue-grey-light);
       }
       .toggled {
         margin-bottom: -12px;
@@ -77,8 +77,8 @@ $option-padding: 4px 10px;
       font-family: 'Play', sans-serif;
       font-size: 1.1em;
 
-      border-bottom: solid 1px #4b6077;
-      border-top: solid 1px #6d869d;
+      border-bottom: solid 1px var(--blue-grey-dark);
+      border-top: solid 1px var(--blue-grey);
       padding: 10px;
       text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }

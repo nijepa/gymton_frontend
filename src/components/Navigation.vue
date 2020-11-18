@@ -28,7 +28,7 @@
             </linearGradient>
             <linearGradient id="7">
             <stop id="Y" stop-color="#437ec6"/>
-            <stop id="Z" offset="1" stop-color="#003e81"/>
+            <stop id="Z" offset="1" stop-color="var(--blue)"/>
             </linearGradient>
             <filter color-interpolation-filters="sRGB" id="8">
             <feGaussianBlur id="a" stdDeviation="8.74984"/>
@@ -216,7 +216,7 @@
   .header__main {
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(#4b6077 60%, #6d869d);
+    background-image: linear-gradient(var(--blue-grey-dark) 60%, var(--blue-grey));
     border-bottom: 1px solid #222c36;
     box-shadow: 1px 1px 8px #5f7c97;
     //position: absolute;
@@ -262,18 +262,18 @@
   }
 
   nav > ul > li > a {
-    color: #70baff;
+    color:var(--blue-grey-light);
     text-decoration: none;
     padding: 0 .3em .1em .3em;
     border-radius: 2px;
   }
 
   nav > ul > li > a:hover {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
   }
 
   nav > ul > li > a:focus {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
     background: #4d7fad;
   }
 
@@ -285,7 +285,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
     font-family: 'Dosis', sans-serif;
     display: block;
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
     font-size: 2.5em;
     text-decoration: none;
     justify-self: end;
@@ -293,11 +293,11 @@
   }
 
   .logo > span {
-    color: #003e81;
+    color: var(--blue);
   }
 
   .logo > .com {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
     font-size: .7em;
     font-weight: 200;
     font-variant: common-ligatures;
@@ -316,7 +316,7 @@
 
   .user__menu > a {
     font-family: 'Play', sans-serif;
-    color: #70baff;
+    color:var(--blue-grey-light);
     text-decoration: none;
     font-weight: 400;
     font-size: 1em;
@@ -327,11 +327,11 @@
   }
 
   .user__menu > a:hover {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
   }
 
   .login__devider {
-    border-right: 1px solid #70baff;
+    border-right: 1px solidvar(--blue-grey-light);
     // padding-right: .5em;
     box-shadow: 0px 0px 2px #0b579e;
   }
@@ -339,7 +339,7 @@
   .arrow {
     display: block;
     transform:rotateX(180deg);
-    color: #70baff;
+    color:var(--blue-grey-light);
     width: 30px;
     font-size: 2em;
     top: 20px;
@@ -348,6 +348,6 @@
   }
 
   .arrow:hover {
-    color: #a5d2fd;
+    color: var(--blue-grey-lighter);
   }
 </style>
