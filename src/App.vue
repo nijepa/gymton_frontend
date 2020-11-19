@@ -19,12 +19,28 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    background: 
+/*     background: 
     radial-gradient(transparent 5%, #444) 
       calc(50% - .125em) 30% content-box, 
     linear-gradient(#bbb, #bbb) content-box, 
-    linear-gradient(-90deg, #d0d3d5, #d2d5d7) border-box;
+    linear-gradient(-90deg, #d0d3d5, #d2d5d7) border-box; */
+        background-image: url("./assets/img/b2.png"),
+                    linear-gradient(210deg,var(--blue-grey-dark), var(--blue-grey));
+    background-size:86px, auto;
+    background-attachment: fixed;
   }
+/* 
+  #app::after {
+    content: "";
+    background: url("./assets/img/b2.png");
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;   
+  } */
 
   #nav {
     padding: 30px;

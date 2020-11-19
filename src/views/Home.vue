@@ -3,7 +3,7 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <Navigation msg="Welcome to Your Vue.js App"/>
     <Player />
-    <Hero />
+    <!-- <Hero /> -->
     <Playing />
 
     <Footer />
@@ -16,7 +16,7 @@ import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 import Player from '@/components/Player.vue'
 import Playing from '@/components/Playing.vue'
-import Hero from '@/components/Hero.vue'
+// import Hero from '@/components/Hero.vue'
 
 export default {
   name: 'Home',
@@ -25,7 +25,7 @@ export default {
     Footer,
     Player,
     Playing,
-    Hero
+    // Hero
   }
 }
 </script>

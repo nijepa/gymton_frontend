@@ -2,11 +2,11 @@
   <div class="playing">
     <div class="previous__tracks">
       <h2 class="track__heading">Previous tracks</h2>
-      <div class="track__info" v-for="track in tracks" :key="track._id">
+      <div class="track__info" v-for="track in previousTracks" :key="track._id">
         <h4 class="track__album">{{ track.album }}</h4>
         <p class="track__artist">{{ track.artist }} - <span class="track__name">{{ track.track }}</span></p>
         <div class="track__like">
-        <svg class="like" fill="none" style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px"
+        <svg :class="track.liked ? 'liked likedmore' : ''" class="like" fill="none" style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px"
             viewBox="0 0 478.2 478.2" width="18px" height="18px" >
           <g>
             <path fill="none" stroke="var(--blue-grey)" style="fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="genres__list">
-      <h2 class="track__heading">Genre</h2>
+      <h2 class="track__heading">{{ currentAlbum.genre }}</h2>
       <div class="track__info">
         <svg class="album__img" width="100" height="100" viewBox="0 0 128 128">
             <defs id="0">
@@ -190,7 +190,7 @@
               </g>
             </g>
         </svg>
-        <svg class="star favorit" width="44px" height="44px" viewBox="0 0 80 80" id="svg2" sodipodi:docname="Empty Star.svg">
+        <svg :class="currentAlbum.favorited ? 'favorited' : ''" class="star favorit" width="44px" height="44px" viewBox="0 0 80 80" id="svg2" sodipodi:docname="Empty Star.svg">
           <defs id="defs4"/>
           <sodipodi:namedview id="base" pagecolor="none" bordercolor="var(--blue-grey)" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" 
                               objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.4678899" 
@@ -207,7 +207,7 @@
                   transform="matrix(0.986858,0,0,1.03704,0.471316,1.159472)"/>
           </g>
         </svg>
-        <p class="genre__album">Album</p>
+        <p class="genre__album">{{ currentAlbum.album }}</p>
       </div>
     </div>
     <div class="albums__list">
@@ -221,7 +221,6 @@
       <h2 class="track__heading">{{ genres[0].name }}</h2>
       <div class="album__conten">
         <div class="album__inf" v-for="track in tracks" :key="track._id">
-          <!-- <img src="" alt="sssss"> -->
           <svg height="30.000000pt" id="svg2" width="30.000000pt" viewBox="0 0 120 120">
             <defs id="defs3">
               <linearGradient id="linearGradient8157">
@@ -328,6 +327,23 @@
           { id: 13,
             name: 'R&B',},
         ],
+        currentAlbum: { genre: 'Various',
+                        favorited: true,
+                        album: 'Mix one'},
+        previousTracks: [
+          { id: 1,
+            liked: true,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Lemongrass',
+            track: 'Lemongrass-Sunrise-on-Fujijama'},
+          { id: 2,
+            liked: false,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Tommy McCook & Prophets',
+            track: '1976_Tommy_McCook_Prophets_Death_Trap'}
+        ]
       }
     }
 
@@ -341,21 +357,14 @@
     grid-template-rows: auto 1fr auto;
     grid-column-gap: 1em;
     grid-row-gap: 1em; 
-    margin-top: 1em;
-    background-image: url("../assets/img/b2.png"),
-                    linear-gradient(210deg,var(--blue-grey-dark), var(--blue-grey));
-    background-size:86px, auto;
-    /* min-height: calc(100vh - 100px); */
-    //@errormargin: 50px;
-    background-attachment: fixed;
     padding: 1em;
     width: 1170px;
     justify-content: center;
     width: 100%;
   }
 
+/* ************************************************** PREVIOUS TRACKS  *********************************************** */
   .previous__tracks {
-    //grid-area: 1 / 1 / 3 / 3;
     grid-area: 1 / 1 / 3 / 2;
     justify-self: end;
     text-align: left;
@@ -386,7 +395,6 @@
     padding: .5em;
     box-shadow: 0px 1px 2px var(--blue-grey);
     border-top: 1px solid var(--blue-grey-darker);
-    //cursor: pointer;
   }
 
   .track__info:hover {
@@ -412,8 +420,19 @@
     margin-left: .5em;
   }
 
+  .dislike:hover > g > path,
+  .like:hover > g > path {
+    fill: var(--blue-grey-dark);
+  }
+
+  .dislike:hover > g > .l1,
+  .like:hover > g > .l1 {
+    fill: var(--blue-grey-lighter);
+    transition: all .5s ease-in-out;
+  }
+
+/* ************************************************** GENRE PLAYING  *********************************************** */
   .genres__list {
-    //grid-area: 1 / 3 / 2 / 4;
     grid-area: 1 / 2 / 2 / 3;
     justify-self: left;
     align-self: baseline;
@@ -435,15 +454,12 @@
     grid-area: 1 / 2 / 2 / 3; 
   }
 
-  .dislike:hover > g > path,
-  .like:hover > g > path {
-    fill: var(--blue-grey-dark);
-  }
-
-  .dislike:hover > g > .l1,
-  .like:hover > g > .l1 {
-    fill: var(--blue-grey-lighter);
-    transition: all .5s ease-in-out;
+/* ************************************************** GENRES  *********************************************** */
+  .albums__list {
+    grid-area: 2 / 2 / 4 / 3;
+    justify-self: left;
+    align-self: baseline;
+    width: 245px;
   }
 
   .genre__choice {
@@ -457,10 +473,13 @@
   }
 
   .genre__name {
-    //background: var(--blue-grey-dark) !important;
     color: var(--blue-grey-darker);
   }
+  .genre__name:focus {
+    background: red;
+  }
 
+/* ************************************************** ALBUMS *********************************************** */
   .albums__genre {
     grid-area: 3 / 1 / 4 / 2;
     background: linear-gradient(45deg, var(--blue-grey-darker), var(--blue-grey-dark));
@@ -498,21 +517,16 @@
     fill: var(--blue-grey-lighter);
   }
 
+  .album__inf:hover > svg > g > .pl2 {
+    fill: var(--blue);
+  }
+
   .album__nam {
     grid-area: 2 / 1 / 3 / 3;
+    font-size: .8em;
   }
 
   .pl {
     justify-self: end;
   }
-
-  .albums__list {
-    //grid-area: 2 / 3 / 3 / 4;
-    grid-area: 2 / 2 / 4 / 3;
-    justify-self: left;
-    align-self: baseline;
-    width: 245px;
-  }
-
-
 </style>

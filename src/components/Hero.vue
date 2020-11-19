@@ -390,25 +390,8 @@
     display: grid;
     justify-content: center;
     justify-items: center;
-    margin-top: 1em;
-    background-image: url("../assets/img/b2.png"),
-                    linear-gradient(210deg,var(--blue-grey-dark), var(--blue-grey));
-    background-size:86px, auto;
-    background-attachment: fixed;
     padding: 1em;
     z-index: -1;
-  }
-
-  .hero::after {
-    content: "";
-    background: url("../assets/img/b2.png");
-    opacity: 0.2;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    //position: absolute;
-    z-index: 100;   
   }
 
 /* ************************************************** POPULAR  *********************************************** */
@@ -495,14 +478,7 @@
     box-shadow: 0px 0px 7px #2b3742;
   }
 
-  .genre__title {
-    grid-area: 1 / 1 / 2 / 11;
-  }
-
-  .genre__content > h3 {
-    font-size: 1em;
-  }
-
+/* ************************************************** GENRES  *********************************************** */
   .genre__button {
     display: flex;
     flex-wrap: wrap;
@@ -526,17 +502,26 @@
     color: #161e25;
   }
 
+  .genre__content > h3 {
+    font-size: 1em;
+  }
+
+  .genre__title {
+    grid-area: 1 / 1 / 2 / 11;
+  }
+
+/* ************************************************** ALBUMS  *********************************************** */
   .album__list {
     grid-template-columns: repeat(5, 1fr);
     grid-gap: .5em;
     padding: .5em;
   }
 
-  .album__title {
-    grid-area: 1 / 1 / 2 / 6;
-  }
-
   .album__content {
     padding: 1em;
+  }
+
+  .album__title {
+    grid-area: 1 / 1 / 2 / 6;
   }
 </style>

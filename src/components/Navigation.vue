@@ -257,8 +257,6 @@
   nav > ul > li {
     position: static;
     float: left;
-    // border-left: 1px solid #c87177;
-    // height: 15px;
   }
 
   nav > ul > li > a {
@@ -307,8 +305,6 @@
     background-image: linear-gradient(#2a4e74 60%, #427cb9);
     border-radius: 2px;
     height: 32px;
-    //justify-self: right;
-    //margin-left: 1em;
     display: flex;
     align-self: center;
     justify-content: left;
@@ -332,7 +328,6 @@
 
   .login__devider {
     border-right: 1px solidvar(--blue-grey-light);
-    // padding-right: .5em;
     box-shadow: 0px 0px 2px #0b579e;
   }
 

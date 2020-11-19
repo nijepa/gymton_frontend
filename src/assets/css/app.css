@@ -73,3 +73,44 @@ h6 {
 h1 {
   font-size: 24px;
 }
+
+
+.popular__content,
+  .genre__content,
+  .album__content {
+    display: grid;
+    align-items: end;
+    align-content: end;
+    background: linear-gradient(225deg, #7497b8, var(--blue-grey-lighter));
+    text-align: left;
+    border: 1px solid var(--blue-grey-dark);
+    border-radius: .2em;
+    box-shadow: 0px 0px 7px #5f7c97;
+    cursor: pointer;
+  }
+
+  .popular__content:hover,
+  .genre__content:hover,
+  .album__content:hover {
+    border: 2px solid #8cb0cf;
+    box-shadow: 0px 0px 7px #2b3742;
+  }
+
+  .genre__title {
+    grid-area: 1 / 1 / 2 / 11;
+  }
+
+  .genre__content > h3 {
+    font-size: 1em;
+  }
+
+  .genre__content {
+    padding: .1em .5em 0 .5em;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #a3c4ea;
+  }
+
+  .genre__content:hover {
+    border: 1px solid var(--blue-grey-lighter);
+    color: #161e25;
+  }
