@@ -86,7 +86,7 @@ h1 {
     border: 1px solid var(--blue-grey-dark);
     border-radius: .2em;
     box-shadow: 0px 0px 7px #5f7c97;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
 
   .popular__content:hover,

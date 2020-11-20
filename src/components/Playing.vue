@@ -212,15 +212,16 @@
     </div>
     <div class="albums__list">
       <div class="genre__choice">
-        <div class="genre__content genre__name" v-for="genre in genres" :key="genre.id">
+        <div class="genre__content genre__name" v-for="genre in genres" :key="genre.id"
+              @click="selectGenre(genre)" :class="genre.name === currentGenre.name ? 'genre__selected': ''">
           <h3>{{ genre.name }}</h3>
         </div>
       </div>
     </div>
     <div class="albums__genre">
-      <h2 class="track__heading">{{ genres[0].name }}</h2>
+      <h2 class="track__heading">{{ currentGenre.name }}</h2>
       <div class="album__conten">
-        <div class="album__inf" v-for="track in tracks" :key="track._id">
+        <div class="album__inf" v-for="album in selectAlbums" :key="album._id">
           <svg height="30.000000pt" id="svg2" width="30.000000pt" viewBox="0 0 120 120">
             <defs id="defs3">
               <linearGradient id="linearGradient8157">
@@ -263,7 +264,7 @@
               <path class="pl2" id="svg_12" fill="var(--blue-grey-darkest)" fill-rule="evenodd" stroke="#ffffff" stroke-miterlimit="4" stroke-dashoffset="0" stroke-opacity="0.182573" d="m458.936768,253.001755l-82.238159,43.34642l-82.238159,43.346527l0.313446,-87.194794l0.316437,-87.194672l81.921875,43.848297l81.924561,43.848221z"/>
             </g>
           </svg>
-          <h4 class="album__nam">{{ track.album }}</h4>
+          <h4 class="album__nam">{{ album.album }}</h4>
         </div>
       </div>
     </div>
@@ -342,9 +343,79 @@
             favorited: true,
             album: 'Mix one',
             artist: 'Tommy McCook & Prophets',
-            track: '1976_Tommy_McCook_Prophets_Death_Trap'}
-        ]
+            track: '1976_Tommy_McCook_Prophets_Death_Trap'},
+          { id: 3,
+            liked: true,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'The Clash',
+            track: 'The clash - bankrobber_dub (the Original  Black Market Clash Version)'},
+          { id: 4,
+            liked: false,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Miles Davis',
+            track: 'Miles Davis - So What'},
+          { id: 5,
+            liked: false,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Neu',
+            track: 'Neu - Hallogallo'},
+        ],
+        albums: [
+          {id: 1,
+          album: 'Album 1',
+          genre: 'Electronic'},
+          {id: 2,
+          album: 'Album 2',
+          genre: 'Electronic'},
+          {id: 3,
+          album: 'Album 3 Album 3 Album 3 Album 3',
+          genre: 'Jazz'},
+          {id: 4,
+          album: 'Album 4',
+          genre: 'Jazz'},
+          {id: 5,
+          album: 'Album 5',
+          genre: 'Electronic'},
+          {id: 6,
+          album: 'Album 6',
+          genre: 'Jazz'},
+          {id: 7,
+          album: 'Album 7',
+          genre: 'Electronic'},
+          {id: 8,
+          album: 'Album 8',
+          genre: 'Mix'},
+          {id: 9,
+          album: 'Album 9',
+          genre: 'Electronic'},
+          {id: 10,
+          album: 'Album 10',
+          genre: 'Electronic'},
+          {id: 11,
+          album: 'Album 11',
+          genre: 'Mix'},
+        ],
+        currentGenre: {id: 11, name: 'Jazz'},
+        genreSelected: false
       }
+    },
+
+    computed: {
+      selectAlbums() {
+        return this.albums.filter(album => album.genre == this.currentGenre.name)
+      }
+    },
+
+    methods: {
+      selectGenre(genre) {
+        this.currentGenre = genre;
+        this.selectAlbums;
+      },
+
+      
     }
 
   }
@@ -353,8 +424,8 @@
 <style lang="scss">
   .playing {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
     grid-column-gap: 1em;
     grid-row-gap: 1em; 
     padding: 1em;
@@ -365,7 +436,7 @@
 
 /* ************************************************** PREVIOUS TRACKS  *********************************************** */
   .previous__tracks {
-    grid-area: 1 / 1 / 3 / 2;
+    grid-area: 1 / 1 / 3 / 3;
     justify-self: end;
     text-align: left;
     align-self: baseline;
@@ -390,7 +461,7 @@
 
   .track__info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto); 
     padding: .5em;
     box-shadow: 0px 1px 2px var(--blue-grey);
@@ -433,7 +504,7 @@
 
 /* ************************************************** GENRE PLAYING  *********************************************** */
   .genres__list {
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: 1 / 3 / 2 / 4;
     justify-self: left;
     align-self: baseline;
     width: 245px;
@@ -456,7 +527,7 @@
 
 /* ************************************************** GENRES  *********************************************** */
   .albums__list {
-    grid-area: 2 / 2 / 4 / 3;
+    grid-area: 2 / 3 / 4 / 4;
     justify-self: left;
     align-self: baseline;
     width: 245px;
@@ -475,13 +546,19 @@
   .genre__name {
     color: var(--blue-grey-darker);
   }
+
   .genre__name:focus {
     background: red;
   }
 
+  .genre__selected {
+    background: var(----blue-grey-darker);
+    color: var(----blue-grey-lighter);
+  }
+
 /* ************************************************** ALBUMS *********************************************** */
   .albums__genre {
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3 / 1 / 4 / 3;
     background: linear-gradient(45deg, var(--blue-grey-darker), var(--blue-grey-dark));
     border-radius: .2em;
     color: var(--blue-grey-lighter);

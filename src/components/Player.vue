@@ -9,7 +9,8 @@
           <path fill="var(--blue-grey-dark)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"/>
         </svg> -->
         <a class="star-link" href="#">
-          <svg :class="currentTrack.favorited ? 'favorited' : ''" class="star" width="44px" height="44px" viewBox="0 0 80 80" id="svg2" sodipodi:docname="Empty Star.svg">
+          <svg class="star" :class="currentTrack.favorited ? 'favorited' : ''" width="44px" height="44px" viewBox="0 0 80 80"
+                id="svg2" sodipodi:docname="Empty Star.svg">
             <defs id="defs4"/>
             <sodipodi:namedview id="base" pagecolor="none" bordercolor="var(--blue-grey-dark)" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" 
                                 objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.4678899" 
@@ -34,8 +35,8 @@
       <div class="sound__controls">
         <div class="volume__wrapper">
           <div class="sound-off">
-            <svg @click="setVolume(-1)" class="down" version="1.1" id="Layer_1" x="0px" y="0px"  width="28" height="28"
-                  viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <svg class="down" @click="setVolume(-1)" width="28" height="28" viewBox="0 0 512 512"
+                  style="enable-background:new 0 0 512 512;" version="1.1" id="Layer_1" x="0px" y="0px" xml:space="preserve">
               <g transform="translate(1)">
                 <path fill="none" d="M7.533,173.973v162.133H101.4L219.16,444.48c11.947,6.827,27.307-1.707,27.307-16.213V90.347
                   c0-14.507-15.36-23.04-27.307-16.213l-117.76,99.84H7.533z"/>
@@ -65,8 +66,8 @@
             <div class="aaa" :style="{ width: computedWidth+'%' }"></div>
           </div>
           <div class="sound-high">
-            <svg @click="setVolume(1)" class="up" version="1.1" id="Layer_1" x="0px" y="0px"  width="30" height="30"
-                  viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <svg class="up" @click="setVolume(1)" width="30" height="30" viewBox="0 0 512 512"
+                  version="1.1" id="Layer_1" x="0px" y="0px" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g transform="translate(1)">
                 <path fill="none" d="M7.533,173.973v162.133H101.4L219.16,444.48c11.947,6.827,27.307-1.707,27.307-16.213V90.347
                   c0-14.507-15.36-23.04-27.307-16.213l-117.76,99.84H7.533z"/>
@@ -107,9 +108,8 @@
 
         <div class="play__wrapper"  @click.prevent="isPlaying ? pause(track) : play(track)">
           <!-- <div v-if="playStart" > -->
-            <svg v-if="!playStart" v-on:click.prevent="playing = !playing"  
-                  width="120.00001" height="120.10718" id="svg5800" version="1.1" 
-                  class="play" @click="togglePlay()">
+            <svg class="play" v-if="!playStart" v-on:click.prevent="playing = !playing" @click="togglePlay()"
+                  width="120.00001" height="120.10718" id="svg5800" version="1.1" >
               <defs id="defs5802">
                 <filter inkscape:collect="always" id="filter4049" color-interpolation-filters="sRGB">
                   <feGaussianBlur inkscape:collect="always" stdDeviation="2.9886041" id="feGaussianBlur4051"/>
@@ -126,7 +126,7 @@
                 <g transform="matrix(0.55984436,0,0,0.56034436,153.74484,-10.873494)" id="g5753">
                   <rect class="uuu" fill="#1f241c" style="fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.75972277;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4049)" id="rect5685" width="199.24026" height="199.24028" x="307.01779" y="673.42206" ry="16.889114"/>
                   <rect ry="16.889114" y="673.42206" x="307.01779" height="199.24028" width="199.24026" id="rect5687" style="fill:url(#linearGradient5728);fill-opacity:1;fill-rule:evenodd;stroke:none"/>
-                  <rect class="uuu" y="687.49774" x="306.96326" height="5.5363946" width="198.88438" id="rect5689" fill="#d7f4d7" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
+                  <rect class="uuu" y="687.49774" x="306.96326" height="5.5363946" width="198.88438" id="rect5689" fill="var(--blue-grey-darker)" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
                   <g style="stroke:#ffffff" transform="matrix(1.5472438,0,0,1.5472438,-178.18411,247.39736)" id="g5691">
                     <path sodipodi:type="arc" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path5693" sodipodi:cx="325.31992" sodipodi:cy="476.68796" sodipodi:rx="2.953618" sodipodi:ry="2.953618" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" transform="translate(103.20033,-77.985646)"/>
                     <path transform="matrix(0.7556502,0,0,0.7556502,188.37997,24.115885)" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" sodipodi:ry="2.953618" sodipodi:rx="2.953618" sodipodi:cy="476.68796" sodipodi:cx="325.31992" id="path5695" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" sodipodi:type="arc"/>
@@ -139,14 +139,14 @@
                     <path transform="matrix(0.5113004,0,0,0.5113004,270.68479,132.68725)" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" sodipodi:ry="2.953618" sodipodi:rx="2.953618" sodipodi:cy="476.68796" sodipodi:cx="325.31992" id="path5707" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" sodipodi:type="arc"/>
                     <path sodipodi:type="arc" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path5709" sodipodi:cx="325.31992" sodipodi:cy="476.68796" sodipodi:rx="2.953618" sodipodi:ry="2.953618" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" transform="translate(111.70108,-84.736773)"/>
                   </g>
-                  <path class="uuu" sodipodi:type="star" fill="#ffffff" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="path5751" sodipodi:sides="3" sodipodi:cx="398.84293" sodipodi:cy="353.41269" sodipodi:r1="155.47128" sodipodi:r2="77.735641" sodipodi:arg1="0.78539816" sodipodi:arg2="1.8325957" inkscape:flatsided="true" inkscape:rounded="0" inkscape:randomized="0" d="M 508.77772,463.34749 248.6692,393.65162 439.08185,203.23896 z" inkscape:transform-center-x="13.827214" inkscape:transform-center-y="0.069407879" transform="matrix(-0.29244942,-0.12506418,0.07787333,-0.46967236,484.02669,988.85245)"/>
+                  <path class="uuu" sodipodi:type="star" fill="var(--blue-grey-darker)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="path5751" sodipodi:sides="3" sodipodi:cx="398.84293" sodipodi:cy="353.41269" sodipodi:r1="155.47128" sodipodi:r2="77.735641" sodipodi:arg1="0.78539816" sodipodi:arg2="1.8325957" inkscape:flatsided="true" inkscape:rounded="0" inkscape:randomized="0" d="M 508.77772,463.34749 248.6692,393.65162 439.08185,203.23896 z" inkscape:transform-center-x="13.827214" inkscape:transform-center-y="0.069407879" transform="matrix(-0.29244942,-0.12506418,0.07787333,-0.46967236,484.02669,988.85245)"/>
                 </g>
               </g>
             </svg>
           <!-- </div> -->
           <!-- <div v-else class=""> -->
-            <svg v-else v-on:click.prevent="playing = !playing"  width="120.00001" height="120.10718" id="svg5500" version="1.1" 
-                  class="pause" @click="togglePlay()">
+            <svg class="pause" v-else v-on:click.prevent="playing = !playing" @click="togglePlay()"
+                  width="120.00001" height="120.10718" id="svg5500" version="1.1">
               <defs id="defs5502">
                 <filter inkscape:collect="always" id="filter4049" color-interpolation-filters="sRGB">
                   <feGaussianBlur inkscape:collect="always" stdDeviation="2.9886041" id="feGaussianBlur4051"/>
@@ -161,7 +161,7 @@
                 <g transform="matrix(0.55984436,0,0,0.56034436,23.980822,191.11171)" id="g4988">
                   <rect class="uuu" fill="#1f241c" style="fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.75972277;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4049)" id="rect4317" width="199.24026" height="199.24028" x="307.01779" y="452.56442" ry="16.889114"/>
                   <rect ry="16.889114" y="452.56442" x="307.01779" height="199.24028" width="199.24026" id="rect4319" style="fill:url(#linearGradient4345);fill-opacity:1;fill-rule:evenodd;stroke:none"/>
-                  <rect class="uuu" y="466.64011" x="306.96326" height="5.5363946" width="198.88438" id="rect4321" fill="#d7f4d7" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
+                  <rect class="uuu" y="466.64011" x="306.96326" height="5.5363946" width="198.88438" id="rect4321" fill="var(--blue-grey-darker)" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
                   <g style="stroke:#ffffff" transform="matrix(1.5472438,0,0,1.5472438,-178.18411,26.539711)" id="g4323">
                     <path sodipodi:type="arc" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path4325" sodipodi:cx="325.31992" sodipodi:cy="476.68796" sodipodi:rx="2.953618" sodipodi:ry="2.953618" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" transform="translate(103.20033,-77.985646)"/>
                     <path transform="matrix(0.7556502,0,0,0.7556502,188.37997,24.115885)" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" sodipodi:ry="2.953618" sodipodi:rx="2.953618" sodipodi:cy="476.68796" sodipodi:cx="325.31992" id="path4327" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" sodipodi:type="arc"/>
@@ -175,8 +175,8 @@
                     <path sodipodi:type="arc" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path4341" sodipodi:cx="325.31992" sodipodi:cy="476.68796" sodipodi:rx="2.953618" sodipodi:ry="2.953618" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" transform="translate(111.70108,-84.736773)"/>
                   </g>
                   <g transform="translate(3.8975058,-5.1966438)" id="g4930">
-                    <rect class="uuu" fill="#ffffff" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="rect4347" width="31.179903" height="109.12966" x="366.36386" y="502.81638"/>
-                    <rect class="uuu" fill="#ffffff" y="502.81638" x="407.93707" height="109.12966" width="31.179903" id="rect4349" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
+                    <rect class="uuu" fill="var(--blue-grey-darker)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="rect4347" width="31.179903" height="109.12966" x="366.36386" y="502.81638"/>
+                    <rect class="uuu" fill="var(--blue-grey-darker)" y="502.81638" x="407.93707" height="109.12966" width="31.179903" id="rect4349" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
                   </g>
                 </g>
               </g>
@@ -200,7 +200,7 @@
     
         <div class="controls">
           <div class="forward__wrapper" @click="nextTrack()">
-            <svg width="50" height="35" viewBox="0 0 120 120" id="svg5242" class="forward">
+            <svg class="forward" width="50" height="35" viewBox="0 0 120 120" id="svg5242">
                 <defs id="defs5244">
                   <filter inkscape:collect="always" id="filter4049" color-interpolation-filters="sRGB">
                     <feGaussianBlur inkscape:collect="always" stdDeviation="2.9886041" id="feGaussianBlur4051"/>
@@ -238,7 +238,7 @@
                   <g id="g5301" transform="matrix(0.55984436,0,0,0.55987188,-132.07419,137.44303)">
                     <rect class="uuu" ry="16.889114" y="226.51013" x="309.61612" height="199.24028" width="199.24026" id="rect5303" style="fill:#1f241c;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.75972277;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4049)"/>
                     <rect class="uuu" style="fill:url(#linearGradient4285);fill-opacity:1;fill-rule:evenodd;stroke:none" id="rect5305" width="199.24026" height="199.24028" x="309.61612" y="226.51013" ry="16.889114"/>
-                    <rect class="uuu" style="fill:#d7f4d7;fill-opacity:1;fill-rule:evenodd;stroke:none" id="rect5307" width="198.88438" height="5.5363946" x="309.56158" y="240.58582"/>
+                    <rect class="uuu" fill="var(--blue-grey-darker)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="rect5307" width="198.88438" height="5.5363946" x="309.56158" y="240.58582"/>
                     <g id="g5309" transform="matrix(1.5472438,0,0,1.5472438,-175.58578,-199.51459)" style="stroke:#ffffff">
                       <path transform="translate(103.20033,-77.985646)" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" sodipodi:ry="2.953618" sodipodi:rx="2.953618" sodipodi:cy="476.68796" sodipodi:cx="325.31992" id="path5311" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" sodipodi:type="arc"/>
                       <path sodipodi:type="arc" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path5313" sodipodi:cx="325.31992" sodipodi:cy="476.68796" sodipodi:rx="2.953618" sodipodi:ry="2.953618" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" transform="matrix(0.7556502,0,0,0.7556502,188.37997,24.115885)"/>
@@ -252,8 +252,8 @@
                       <path transform="translate(111.70108,-84.736773)" d="m 328.27353,476.68796 c 0,1.63124 -1.32238,2.95362 -2.95361,2.95362 -1.63124,0 -2.95362,-1.32238 -2.95362,-2.95362 0,-1.63124 1.32238,-2.95362 2.95362,-2.95362 1.63123,0 2.95361,1.32238 2.95361,2.95362 z" sodipodi:ry="2.953618" sodipodi:rx="2.953618" sodipodi:cy="476.68796" sodipodi:cx="325.31992" id="path5327" style="opacity:0.54368932;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" sodipodi:type="arc"/>
                     </g>
                     <g id="g5329" transform="matrix(0.8484128,0,0,0.8484128,58.506668,45.070796)">
-                      <path class="uuu" fill="#ffffff" sodipodi:type="star" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="path5331" sodipodi:sides="3" sodipodi:cx="398.84293" sodipodi:cy="353.41269" sodipodi:r1="155.47128" sodipodi:r2="77.735641" sodipodi:arg1="0.78539816" sodipodi:arg2="1.8325957" inkscape:flatsided="true" inkscape:rounded="0" inkscape:randomized="0" d="M 508.77772,463.34749 248.6692,393.65162 439.08185,203.23896 z" inkscape:transform-center-x="-13.827215" inkscape:transform-center-y="0.069407879" transform="matrix(-0.3447018,-0.14740959,0.09178707,-0.55358943,485.44286,585.6462)"/>
-                      <rect class="uuu" fill="#ffffff" y="276.71198" x="443.01447" height="109.12966" width="31.179903" id="rect5333" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
+                      <path class="uuu" fill="var(--blue-grey-darker)" sodipodi:type="star" style="fill-opacity:1;fill-rule:evenodd;stroke:none" id="path5331" sodipodi:sides="3" sodipodi:cx="398.84293" sodipodi:cy="353.41269" sodipodi:r1="155.47128" sodipodi:r2="77.735641" sodipodi:arg1="0.78539816" sodipodi:arg2="1.8325957" inkscape:flatsided="true" inkscape:rounded="0" inkscape:randomized="0" d="M 508.77772,463.34749 248.6692,393.65162 439.08185,203.23896 z" inkscape:transform-center-x="-13.827215" inkscape:transform-center-y="0.069407879" transform="matrix(-0.3447018,-0.14740959,0.09178707,-0.55358943,485.44286,585.6462)"/>
+                      <rect class="uuu" fill="var(--blue-grey-darker)" y="276.71198" x="443.01447" height="109.12966" width="31.179903" id="rect5333" style="fill-opacity:1;fill-rule:evenodd;stroke:none"/>
                     </g>
                   </g>
                 </g>
@@ -261,8 +261,8 @@
           </div>
           <div class="like__dislike">
           <a class="like-link" href="#"> 
-            <svg :class="currentTrack.liked ? 'liked likedmore' : ''" class="like" fill="none" style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px"
-                viewBox="0 0 478.2 478.2" width="20px" height="20px" >
+            <svg class="like" :class="currentTrack.liked ? 'liked likedmore' : ''" fill="none" width="20px" height="20px" viewBox="0 0 478.2 478.2"  
+                  style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px">
               <g>
                 <path fill="none" stroke="var(--blue-grey-dark)" style="fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
                   c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1
@@ -290,8 +290,8 @@
             </svg>
           </a>
           <a class="dislike-link" href="#"> 
-            <svg class="dislike" fill="var(--blue-grey-dark)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" version="1.1" id="Capa_1" x="0px" y="0px"
-                viewBox="0 0 478.2 478.2" width="20px" height="20px" >
+            <svg class="dislike" fill="var(--blue-grey-dark)" viewBox="0 0 478.2 478.2" width="20px" height="20px"
+                  style="fill-opacity:1;fill-rule:evenodd;stroke:none" version="1.1" id="Capa_1" x="0px" y="0px">
               <g>
                 <path fill="none" stroke="none" style="fill-opacity:1;" d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
                   c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1
@@ -365,7 +365,25 @@
             favorited: true,
             album: 'Mix one',
             artist: 'Tommy McCook & Prophets',
-            track: '1976_Tommy_McCook_Prophets_Death_Trap'}
+            track: '1976_Tommy_McCook_Prophets_Death_Trap'},
+          { id: 3,
+            liked: true,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'The Clash',
+            track: 'The clash - bankrobber_dub (the Original  Black Market Clash Version)'},
+          { id: 4,
+            liked: false,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Miles Davis',
+            track: 'Miles Davis - So What'},
+          { id: 5,
+            liked: false,
+            favorited: true,
+            album: 'Mix one',
+            artist: 'Neu',
+            track: 'Neu - Hallogallo'},
         ],
         currentTrack: {},
         trackId: 0
@@ -478,7 +496,9 @@
       nextTrack() {
         this.pause(this.track);
         this.durationSeconds = 0;
-        this.selectTrack(this.trackId + 1);
+        let rr =this.trackId + 1
+        console.log(rr)
+        this.selectTrack(this.trackId += 1);
         this.play(this.track);
       }
 
