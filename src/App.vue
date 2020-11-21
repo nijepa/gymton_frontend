@@ -42,15 +42,16 @@
     z-index: 1;   
   } */
 
-  #nav {
-    padding: 30px;
+  nav {
+    //padding: 30px;
 
     a {
       font-weight: bold;
       color: #2c3e50;
 
       &.router-link-exact-active {
-        color: #42b983;
+        color: var(--blue-grey-lighter);
+        background: #293c4e;
       }
     }
   }

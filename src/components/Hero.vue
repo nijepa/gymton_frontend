@@ -1,5 +1,12 @@
 <template>
+  <div class="">
+  <div class="">
+    <carousel />
+  </div>
   <div class="hero">
+    
+    <div class="hoop ">
+    </div>
     <div class="popular__list">
       <h1 class="popular__title">Popular albums</h1>
       <div class=" " v-for="popular in populars" :key="popular.id">
@@ -169,10 +176,10 @@
             </div>
           </div>
           <div class="popular__text">
-            <h3>{{ popular.name }}</h3>
+            <p class="genre__album">{{ popular.name }}</p>
             <div class="popular__track">
-              <p class="author__name">{{ popular.auth }}</p>
-              <p class="track__name">{{ popular.track }}</p>
+              <h3 class="author__name">{{ popular.auth }}</h3>
+              <!-- <p class="track__name">{{ popular.track }}</p> -->
             </div>
           </div>
         </div>
@@ -189,9 +196,9 @@
     </div>
     <div class="album__list">
       <h1 class="album__title">Albums</h1>
-      <div class="popular__content" v-for="album in albums" :key="album.id">
+      <div class="popular__content" v-for="album in selectAlbums" :key="album.id">
         <div class="container">
-          <svg  viewBox="0 0 128 128">
+          <svg viewBox="0 0 128 128">
             <defs id="0">
               <linearGradient id="2">
               <stop id="O"/>
@@ -316,9 +323,8 @@
             </g>
           </svg>
           <div class="album__hovered">
-            <svg viewBox="0 0 120 120"
-                    width="60.00001" height="60.10718" id="svg5800" version="1.1" 
-                    class="play kley" @click="togglePlay()">
+            <svg class="play" @click="togglePlay()" width="60.00001" height="60.10718" viewBox="0 0 120 120"
+                  id="svg5800" version="1.1" >
                 <defs id="defs5802">
                   <filter inkscape:collect="always" id="filter4049" color-interpolation-filters="sRGB">
                     <feGaussianBlur inkscape:collect="always" stdDeviation="2.9886041" id="feGaussianBlur4051"/>
@@ -355,20 +361,31 @@
           </div>
         </div>
         <div class="popular__text">
-          <h3>{{ album.name }}</h3>
+          <h3 class="genre__album">{{ album.genre }}</h3>
           <div class="popular__track">
             <p class="author__name">{{ album.auth }}</p>
-            <p class="track__name">{{ album.track }}</p>
+            <!-- <p class="track__name">{{ album.track }}</p> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+  //import { Hooper, Slide, Pagination as HooperPagination, Navigation as HooperNavigation } from 'hooper';
+  import 'hooper/dist/hooper.css';
+  import Carousel from './Carousel'
   export default {
     name: 'Hero',
+    components: {
+    /*   Hooper,
+      Slide,
+      HooperPagination,
+      HooperNavigation, */
+      Carousel
+    },
     data() {
       return {
         genres : [
@@ -423,47 +440,53 @@
         ],
         albums : [
           { id: 1,
-            name: 'Rock&Roll',
+            genre: 'Rock&Roll',
             auth: 'uuuu',
             track:'uno'},
           { id: 2,
-            name: 'Electronick',
+            genre: 'Electronic',
             auth: 'uuuu',
             track:'uno'},
           { id: 3,
-            name: 'Pop',
-            auth: 'uuuu',
+            genre: 'Jazz',
+            auth: 'This is the great album mate!',
             track:'uno'},
           { id: 4,
-            name: 'Mix',
+            genre: 'Mix',
             auth: 'uuuu',
             track:'uno'},
           { id: 5,
-            name: 'Reggae',
+            genre: 'Reggae',
             auth: 'uuuu',
             track:'uno'},
           { id: 6,
-            name: 'Rock&Roll',
+            genre: 'Rock&Roll',
             auth: 'uuuu',
             track:'uno'},
           { id: 7,
-            name: 'Electronick',
+            genre: 'Electronic',
             auth: 'uuuu',
             track:'uno'},
           { id: 8,
-            name: 'Pop',
+            genre: 'Jazz',
             auth: 'uuuu',
             track:'uno'},
           { id: 9,
-            name: 'Mix',
+            genre: 'Mix',
             auth: 'uuuu',
             track:'uno'},
           { id: 10,
-            name: 'Reggae',
+            genre: 'Reggae',
             auth: 'uuuu',
             track:'uno'},
         ],
         currentGenre: {id: 11, name: 'Jazz'},
+      }
+    },
+
+    computed: {
+      selectAlbums() {
+        return this.albums.filter(album => album.genre == this.currentGenre.name)
       }
     },
 
@@ -484,7 +507,7 @@
     justify-content: center;
     justify-items: center;
     padding: 1em;
-    z-index: -1;
+    padding: 0;
   }
 
 /* ************************************************** POPULAR  *********************************************** */
@@ -494,6 +517,7 @@
     grid-row-gap: .5em;
     grid-column-gap: 1em;
     justify-content: center;
+    margin-top: 1em;
   }
 
   .popular__list,
@@ -532,6 +556,7 @@
 
   .author__name {
     font-weight: 900;
+    font-size: .8em;
   }
 
   .track__name {
@@ -555,7 +580,7 @@
   .album__content {
     display: grid;
     align-items: end;
-    align-content: end;
+    align-content: start;
     //background: linear-gradient(225deg, #7497b8, var(--blue-grey-lighter));
     background: linear-gradient(225deg,var(--blue-grey-dark), var(--blue-grey));
     text-align: left;
@@ -619,6 +644,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: .5em;
     padding: .5em;
+    margin-bottom: 1em;
   }
 
   .album__content {
@@ -629,6 +655,16 @@
     grid-area: 1 / 1 / 2 / 6;
   }
 
+  .author__name {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  .genre__album {
+    font-size: .8em;
+    margin: 0;
+  }
+
   .container {
     position: relative;  
     width:100%;
@@ -637,6 +673,7 @@
     justify-items: center;
       //max-width:100px;
   }
+
   .container:before {
     content:"";
     position:absolute;
@@ -644,14 +681,18 @@
     height:100%;
     top:0;left:0;right:0;
     background-color:rgba(0,0,0,0);
+    border-radius: .2em;
   }
+
   .container:hover::before {
     background-color:rgba(0,0,0,0.5);
     transition: ease-in-out .3s all;
   }
+
   .container .album__img {
     display:block;
   }
+
   .container .album__hovered {
     position: absolute;
   /*   top: 5%;
@@ -660,6 +701,7 @@
     -ms-transform: translate(0%, -0%); */
     opacity:0;
   } 
+
   .container:hover .album__hovered {   
     opacity: 1;
   }
@@ -667,6 +709,18 @@
   .album__hovered {
     margin: auto;
     width: 50%;
+  }
+
+  .hoop {
+    background: radial-gradient(transparent 5%, #444) calc(50% - .125em) 30% content-box, 
+                linear-gradient(#bbb, #bbb) content-box, 
+                linear-gradient(-90deg, #d0d3d5, #d2d5d7) border-box;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slide__img {
+    height: 90px;
   }
 
 </style>

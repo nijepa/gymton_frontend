@@ -136,12 +136,14 @@
     <nav>
       <ul>
         <li>
-          <a href="#" class="nav__item nav__item_uno">home</a>
+          <router-link to="/">Home</router-link>
+          <!-- <a href="#" class="nav__item nav__item_uno">home</a> -->
         </li>
         <li class="nav__item_break">
           <a>|</a></li>
         <li>
-          <a href="#" class="nav__item nav__item_due">about</a>
+          <router-link to="/play">About</router-link>
+          <!-- <a href="#" class="nav__item nav__item_due">about</a> -->
         </li>
         <li class="nav__item_break">
           <a>|</a></li>

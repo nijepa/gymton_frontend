@@ -6,8 +6,8 @@
         <h4 class="track__album">{{ track.album }}</h4>
         <p class="track__artist">{{ track.artist }} - <span class="track__name">{{ track.track }}</span></p>
         <div class="track__like">
-        <svg :class="track.liked ? 'liked likedmore' : ''" class="like" fill="none" style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px"
-            viewBox="0 0 478.2 478.2" width="18px" height="18px" >
+        <svg class="like" :class="track.liked ? 'liked likedmore' : ''" fill="none" viewBox="0 0 478.2 478.2" width="18px" height="18px"
+            style="fill-opacity:1;fill-rule:evenodd;stroke:var(--blue-grey-dark)" version="1.1" id="Capa_1" x="0px" y="0px">
           <g>
             <path fill="none" stroke="var(--blue-grey)" style="fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
               c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1
@@ -33,8 +33,8 @@
               C444.875,295.3,440.675,304.4,431.975,313.4z"/>
           </g>
         </svg>
-        <svg class="dislike dis_left" fill="var(--blue-grey-dark)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" version="1.1" id="Capa_1" x="0px" y="0px"
-              viewBox="0 0 478.2 478.2" width="18px" height="18px" >
+        <svg class="dislike dis_left" fill="var(--blue-grey-dark)" viewBox="0 0 478.2 478.2" width="18px" height="18px"
+              style="fill-opacity:1;fill-rule:evenodd;stroke:none" version="1.1" id="Capa_1" x="0px" y="0px">
           <g>
             <path fill="none" stroke="none" style="fill-opacity:1;" d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
               c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1
@@ -190,7 +190,8 @@
               </g>
             </g>
         </svg>
-        <svg :class="currentAlbum.favorited ? 'favorited' : ''" class="star favorit" width="44px" height="44px" viewBox="0 0 80 80" id="svg2" sodipodi:docname="Empty Star.svg">
+        <svg class="star favorit" :class="currentAlbum.favorited ? 'favorited' : ''" width="44px" height="44px" viewBox="0 0 80 80" 
+              id="svg2" sodipodi:docname="Empty Star.svg">
           <defs id="defs4"/>
           <sodipodi:namedview id="base" pagecolor="none" bordercolor="var(--blue-grey)" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" 
                               objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.4678899" 
@@ -222,7 +223,7 @@
       <h2 class="track__heading">{{ currentGenre.name }}</h2>
       <div class="album__conten">
         <div class="album__inf" v-for="album in selectAlbums" :key="album._id">
-          <svg height="30.000000pt" id="svg2" width="30.000000pt" viewBox="0 0 120 120">
+          <svg height="30.000000pt" width="30.000000pt" viewBox="0 0 120 120" id="svg2">
             <defs id="defs3">
               <linearGradient id="linearGradient8157">
                 <stop id="stop8159" offset="0.0000000" style="stop-color:var(--blue-grey-darker);stop-opacity:1.0000000;"/>
@@ -552,8 +553,8 @@
   }
 
   .genre__selected {
-    background: var(----blue-grey-darker);
-    color: var(----blue-grey-lighter);
+    background: var(--blue-grey-darker);
+    color: var(--blue-grey-lighter);
   }
 
 /* ************************************************** ALBUMS *********************************************** */
