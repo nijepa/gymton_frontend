@@ -364,10 +364,6 @@ export default {
     grid-area: 2 / 1 / 3 / 3;
   }
 
-  .progress__infos {
-    
-  }
-
   .progress {
     display: grid;
     grid-auto-flow: column;

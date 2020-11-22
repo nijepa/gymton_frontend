@@ -10,7 +10,7 @@
       <div class="dropdown-label">
         <span class="text">
           {{ (config.prefix ? config.prefix : "") + " "
-          }}{{ loggedUser ? loggedUser : "" }}
+          }}{{ config.placeholder ? config.placeholder : "" }}
         </span>
         <i class="angle-down" :class="{ toggled: isExpanded }"></i>
       </div>
@@ -43,8 +43,7 @@ export default {
       border: "1px solid  #232b35",
       borderRadius: 0,
       textColor: "#70baff",
-      isExpanded: false,
-      loggedUser: 'Mrljo'
+      isExpanded: false
     };
   },
   components: {},
@@ -106,7 +105,7 @@ export default {
     setConfigData() {
       this.configOptions = this.config.options;
       this.width = this.config.width;
-      //this.placeholder = this.config.placeholder;
+      this.placeholder = this.config.placeholder;
       if (this.config.backgroundColor) {
         this.backgroundColor = this.config.backgroundColor;
       }

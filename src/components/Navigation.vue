@@ -158,9 +158,9 @@
       <span class="login__devider"></span>
       <span class="arrow">&#8248;</span> -->
       <dropdown
-      :config="config"
-      @setSelectedOption="setNewSelectedOption($event);"
-    ></dropdown>
+        :config="config"
+        @setSelectedOption="setNewSelectedOption($event);"
+      ></dropdown>
     </div>
     
   </div>
@@ -181,11 +181,12 @@
     },
     data() {
       return {
+        loggedUser: { name: 'Mrlj'},
         config: {
           options: [
             {
               id: 1,
-              value: "Profile"
+              value: "Profile",
             },
             {
               id: 2,
@@ -196,7 +197,7 @@
               value: "Log Out"
             }
           ],
-          placeholder: "Log In",
+          placeholder: this.setUser,
           backgroundColor: "#cde4f5",
           textColor: "textColor",
           borderRadius: ".2em",
@@ -208,7 +209,22 @@
     methods: {
       setNewSelectedOption(selectedOption) {
         this.config.placeholder = selectedOption.value;
+        if (selectedOption.id === 1) {
+          this.$router.push({ path: '/user' })
+        } else if (selectedOption.id === 2) {
+          this.$router.push({ path: '/' })
+        } else {
+          this.$router.push({ path: '/play' })
+        }
+      },
+    },
+    computed: {
+      setUser() {
+        return this.loggedUser.name;
       }
+    },
+    mounted() {
+      //this.loggedUser.name = ' Mrljo';
     }
   }
 </script>

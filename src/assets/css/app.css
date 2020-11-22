@@ -122,3 +122,8 @@ h1 {
     border: 1px solid var(--blue-grey-lighter);
     color: #161e25;
   }
+
+  .upload__heading {
+    background: radial-gradient(transparent 5%, #444) calc(50% - .125em) 30% content-box, linear-gradient(#bbb, #bbb) content-box, linear-gradient(-90deg, #d0d3d5, #d2d5d7) border-box;
+    color: var(--blue-grey-darker);
+}
