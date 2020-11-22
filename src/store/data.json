@@ -1,0 +1,287 @@
+[
+  { "_id": 1,
+    "name": "Jazz",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Miles Davis",
+        "album": "Kind Of Blue"
+      },
+      {
+        "_id": 2,
+        "artist": "John Coltrane",
+        "album": "A Love Supreme"
+      },
+      {
+        "_id": 3,
+        "artist": "Dave Brubeck Quartet",
+        "album": "Time Out "
+      },
+      {
+        "_id": 4,
+        "artist": "Charles Mingus",
+        "album": "Mingus Ah Um"
+      },
+      {
+        "_id": 5,
+        "artist": "Ornette Coleman",
+        "album": "The Shape Of Jazz To Come"
+      },
+      {
+        "_id": 6,
+        "artist": "Charles Mingus",
+        "album": "The Black Saint And The Sinner Lady"
+      },
+      {
+        "_id": 7,
+        "artist": "Cannonball Adderley",
+        "album": "Somethin’ Else"
+      }
+    ]
+  },
+  { "_id": 2,
+    "name": "Rock&Roll",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Pink Floyd",
+        "album": "Dark Side Of The Moon"
+      },
+      {
+        "_id": 2,
+        "artist": "Guns N' Roses",
+        "album": "Appetite For Destruction"
+      },
+      {
+        "_id": 3,
+        "artist": "AC/DC",
+        "album": "Back In Black"
+      },
+      {
+        "_id": 4,
+        "artist": "Metallica",
+        "album": "Master Of Puppets"
+      },
+      {
+        "_id": 5,
+        "artist": "Led Zeppelin",
+        "album": "IV"
+      }
+    ]
+  },
+  { "_id": 3,
+    "name": "Pop",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Stevie Wonder",
+        "album": "Songs In The Key Of Life"
+      },
+      {
+        "_id": 2,
+        "artist": "The Beach Boys",
+        "album": "Smile"
+      },
+      {
+        "_id": 3,
+        "artist": "The Beatles",
+        "album": "Help! "
+      }
+    ]
+  },
+  { "_id": 4,
+    "name": "Hip Hop",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Nas",
+        "album": "Illmatic"
+      },
+      {
+        "_id": 2,
+        "artist": "Notorious BIG",
+        "album": "Ready To Die"
+      },
+      {
+        "_id": 3,
+        "artist": "Wu-Tang Clan",
+        "album": "Enter The Wu-Tang (36 Chambers) "
+      },
+      {
+        "_id": 4,
+        "artist": "Eminem",
+        "album": "The Marshal Mathers LP"
+      },
+      {
+        "_id": 5,
+        "artist": "Dr Dre",
+        "album": "The Chronic"
+      },
+      {
+        "_id": 6,
+        "artist": "2Pac",
+        "album": "All Eyez On Me"
+      }
+    ]
+  },
+  { "_id": 5,
+    "name": "Electronic",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Kraftwerk",
+        "album": "Trans-Europe Express"
+      },
+      {
+        "_id": 2,
+        "artist": "Massive Attack",
+        "album": "Blue Lines"
+      },
+      {
+        "_id": 3,
+        "artist": "Aphex Twin",
+        "album": "Selected Ambient Works 85-92 "
+      },
+      {
+        "_id": 4,
+        "artist": "The Orb",
+        "album": "Adventures Beyond the Ultraworld"
+      },
+      {
+        "_id": 5,
+        "artist": "Portishead",
+        "album": "Dummy"
+      },
+      {
+        "_id": 6,
+        "artist": "Brian Eno",
+        "album": "Ambient 1: Music for Airports"
+      },
+      {
+        "_id": 7,
+        "artist": "DJ Shadow",
+        "album": "Endtroducing…"
+      }
+    ]
+  },
+  { "_id": 6,
+    "name": "Blues",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Lead Belly",
+        "album": "Where Did You Sleep Last Night"
+      }
+    ]
+  },
+  { "_id": 7,
+    "name": "Reggae",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Burning Spear",
+        "album": "Marcus Garvey"
+      },
+      {
+        "_id": 2,
+        "artist": "Toots And The Maytals",
+        "album": "Funky Kingston"
+      },
+      {
+        "_id": 1,
+        "artist": "Bob Marley And The Wailers",
+        "album": "Kaya"
+      }
+    ]
+  },
+  { "_id": 8,
+    "name": "Disco",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Donna Summer",
+        "album": "Love To Love You Baby"
+      }
+    ]
+  },
+  { "_id": 9,
+    "name": "Country",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Johnny Cash",
+        "album": "At Folsom Prison"
+      }
+    ]
+  },
+  { "_id": 10,
+    "name": "Funk",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Parliament",
+        "album": "Chocolate City"
+      }
+    ]
+  },
+  { "_id": 11,
+    "name": "R&B",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Prince",
+        "album": "Sign 'O' the Times"
+      }
+    ]
+  },
+  { "_id": 12,
+    "name": "Mix",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Various",
+        "album": "Compilation 1"
+      }
+    ]
+  },
+  { "_id": 13,
+    "name": "Folk",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Miroslav Ilić",
+        "album": "Prda na kub"
+      }
+    ]
+  },
+  { "_id": 14,
+    "name": "Instrumental",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Various",
+        "album": "Compilation 1"
+      }
+    ]
+  },
+  { "_id": 15,
+    "name": "Classic",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Bah",
+        "album": "Igra šah"
+      }
+    ]
+  },
+  { "_id": 16,
+    "name": "Popular",
+    "albums": [
+      {
+        "_id": 1,
+        "artist": "Vlado",
+        "album": "Tuljan"
+      }
+    ]
+  }
+  ]

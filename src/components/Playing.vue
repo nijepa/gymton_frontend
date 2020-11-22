@@ -585,6 +585,7 @@
     transition: ease-in-out .5s all;
     display: grid;
     grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr;
   }
 
   .album__inf:hover {

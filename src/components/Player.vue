@@ -186,7 +186,7 @@
 
         <div class="play__info">
           <p class="artist">{{ currentTrack.artist }}</p>
-          <h3 class="track">{{ truncate(currentTrack.track, 30) }}</h3>
+          <h3 class="track">{{ truncate(currentTrack.track, 35) }}</h3>
           <div class="progres">
             <progress id="file" :value="currentSeconds" :max="durationSeconds" >
               72% 
@@ -402,11 +402,13 @@
       },
 
       truncate( str, n, useWordBoundary ){
+        if(str){
         if (str.length <= n) { return str; }
         const subString = str.substr(0, n-1); // the original check
         return (useWordBoundary 
           ? subString.substr(0, subString.lastIndexOf(" ")) 
           : subString) + "...";
+        }
       },
 
       volume(amount) {
@@ -461,6 +463,11 @@
       },
 
       update () {
+/*         console.log(finished)
+        let finished = e
+        if(finished) {
+          this.nextTrack()
+        } */
         this.durationSeconds = Math.round(this.track.duration);
         this.currentSeconds = Math.round(this.track.currentTime);
         this.remainSeconds = Math.round(this.track.duration - this.track.currentTime);
@@ -822,6 +829,7 @@
     margin-bottom: 1em;
     justify-self: baseline;
   }
+
   progress[value] {
     width: 350px;
     height: .4em;

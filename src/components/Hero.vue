@@ -422,7 +422,7 @@
             auth: 'uuuu',
             track:'uno'},
           { id: 2,
-            name: 'Electronick',
+            name: 'Electronic',
             auth: 'uuuu',
             track:'uno'},
           { id: 3,

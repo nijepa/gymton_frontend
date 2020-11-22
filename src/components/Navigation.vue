@@ -148,7 +148,7 @@
         <li class="nav__item_break">
           <a>|</a></li>
         <li>
-          <a href="#" class="nav__item nav__item_tre">music</a>
+          <router-link to="/upload">Upload</router-link>
         </li>
       </ul>
     </nav>
@@ -310,6 +310,7 @@
     display: flex;
     align-self: center;
     justify-content: left;
+    z-index: 2;
   }
 
   .user__menu > a {

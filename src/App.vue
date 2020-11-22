@@ -28,8 +28,9 @@
                     linear-gradient(210deg,var(--blue-grey-dark), var(--blue-grey));
     background-size:86px, auto;
     background-attachment: fixed;
+    z-index: -5;
   }
-/* 
+
   #app::after {
     content: "";
     background: url("./assets/img/b2.png");
@@ -39,8 +40,8 @@
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: 1;   
-  } */
+    z-index: -3;   
+  }
 
   nav {
     //padding: 30px;
