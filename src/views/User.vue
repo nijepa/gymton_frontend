@@ -3,7 +3,7 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <Navigation msg="Welcome to Your Vue.js App"/>
     <user-header />
-
+    <Profile />
     <Footer />
   </div>
 </template>
@@ -13,13 +13,15 @@
 import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 import UserHeader from "@/components/UserHeader.vue";
+import Profile from "@/components/Profile.vue";
 
 export default {
   name: 'User',
   components: {
     Navigation,
     Footer,
-    UserHeader
+    UserHeader,
+    Profile
   }
 }
 </script>
