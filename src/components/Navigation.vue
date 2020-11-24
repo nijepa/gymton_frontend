@@ -212,7 +212,7 @@
         if (selectedOption.id === 1) {
           this.$router.push({ path: '/user' })
         } else if (selectedOption.id === 2) {
-          this.$router.push({ path: '/' })
+          this.$router.push({ path: '/login' })
         } else {
           this.$router.push({ path: '/play' })
         }

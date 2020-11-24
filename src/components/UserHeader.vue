@@ -3,7 +3,7 @@
     <div class="upload__heading">
       <div class="upload__heading_content user__heading">
         <div class="user__links">
-          <svg class="user__pic"  :class="menuSelected == 1 ? 'selected__pic' : ''" width="84" height="84" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+          <svg class="user__pic"  :class="getSelectedMenu == 1 ? 'selected__pic' : ''" width="84" height="84" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
             <g id="Layer_1">
               <g>
                 <circle class="st10" cx="32" cy="32" r="32"/>
@@ -22,14 +22,14 @@
             <g id="Layer_2">
             </g>
           </svg>
-          <h1 class="user__title" :class="menuSelected == 1 ? 'selected__menu' : ''"
+          <h1 class="user__title" :class="getSelectedMenu == 1 ? 'selected__menu' : ''"
               @click="selectMenu(1)">
             Profile
           </h1>
         </div>
 
         <div class="user__links">
-          <svg class="user__pic"  :class="menuSelected == 2 ? 'selected__pic' : ''" version="1.1" id="Layer_1" x="0px" y="0px" width="84" height="84"
+          <svg class="user__pic"  :class="getSelectedMenu == 2 ? 'selected__pic' : ''" version="1.1" id="Layer_1" x="0px" y="0px" width="84" height="84"
               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
             <g>
               <path style="fill:none;" d="M256,0C114.616,0,0,114.616,0,256s114.616,256,256,256s256-114.616,256-256S397.384,0,256,0L256,0z"
@@ -89,14 +89,14 @@
                 h106.803L366.838,301.732L366.838,301.732z"/>
             </g>
           </svg>
-          <h1 class="user__title" :class="menuSelected == 2 ? 'selected__menu' : ''"
+          <h1 class="user__title" :class="getSelectedMenu == 2 ? 'selected__menu' : ''"
               @click="selectMenu(2)">
-            Adverisement
+            Advertising
           </h1>
         </div>
 
         <div class="user__links">
-          <svg class="user__pic" :class="menuSelected == 3 ? 'selected__pic' : ''" version="1.1" id="Layer_1" idth="84" height="84" x="0px" y="0px"
+          <svg class="user__pic" :class="getSelectedMenu == 3 ? 'selected__pic' : ''" version="1.1" id="Layer_1" idth="84" height="84" x="0px" y="0px"
               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
             <g>
               <circle style="fill:none;" cx="256" cy="256" r="256"/>
@@ -171,7 +171,7 @@
               <rect x="364.442" y="354.099" style="fill:#FC611F;" width="26.947" height="16.527"/>
             </g>
           </svg>
-          <h1 class="user__title" :class="menuSelected == 3 ? 'selected__menu' : ''"
+          <h1 class="user__title" :class="getSelectedMenu == 3 ? 'selected__menu' : ''"
               @click="selectMenu(3)">
             Mix
           </h1>
@@ -183,6 +183,8 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex';
+
   export default {
     name: 'UserHeader',
     data() {
@@ -190,10 +192,16 @@
         menuSelected: 1
       }
     },
+    computed: {
+      ...mapGetters([ 'getSelectedMenu' ]),
+    },
+
     methods: {
-      selectMenu(id) {
+      ...mapActions([ 'selectMenu' ]),
+    
+/*       choseMenu(id) {
         this.menuSelected = id;
-      }
+      } */
     }
   }
 </script>

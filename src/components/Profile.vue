@@ -1,6 +1,8 @@
 <template>
   <div class="profile__wrapper">
+    
     <form @submit.prevent="userUpdate(signupInput)" action="" class="user_form">
+      <h1 class="profile__title">My info</h1>
         <div class="form__item">
 <!--           <img :src="signupInput.picture || require('../assets/nopic' + Math.floor(Math.random() * 5) + '.png')" 
                 class="info__img"> -->
@@ -137,6 +139,8 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex';
+
   export default {
     name: 'Profile',
     data() {
@@ -153,6 +157,20 @@
         },
         user: {},
       }
+    },
+    computed: {
+      ...mapGetters([ 'loggedUser',
+                      'getSelectedUser',
+                      'getSelectedMenu',
+                      'getErrors' ]),
+    },
+
+    methods: {
+      ...mapActions([ 'signup',
+                      'fetchSelectedUser',
+                      'userUpdate',
+                      'selectMenu',
+                      'clearErrors' ]),
     }
   }
 </script>
@@ -163,15 +181,42 @@
     padding: 1em;
   }
 
+  .profile__title {
+    background: var(--blue-grey-darker);
+    padding: .5em;
+    border-bottom: 1px solid var(--blue-grey-light);
+    box-shadow: 0px 1px 2px var(--blue-grey);
+    margin: 0;
+    justify-self: center;
+  }
+
   .user_form {
     background: var(--blue-grey);
     justify-self: center;
-    padding: 1em;
+    //padding: 1em;
     border-radius: .2em;
+
+    background: linear-gradient(45deg, var(--blue-grey-darker), var(--blue-grey-dark));
+    border-radius: .2em;
+    color: var(--blue-grey-lighter);
+  }
+
+  .form__item {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto); 
+    padding: .5em 1em;
+    box-shadow: 0px 1px 2px var(--blue-grey);
+    border-top: 1px solid var(--blue-grey-darker);
+  }
+
+  .form__item:hover {
+    background: var(--blue-grey-dark);
   }
 
   .frm__btn {
     display: flex;
+    padding: 1em;
   }
 
   .form__btn {
@@ -184,6 +229,7 @@
     margin: 0 auto;
     font-variant: small-caps;
     font-weight: 800;
+    color: var(--blue-grey-light);
     transition: ease-in-out .6s all;
   }
 
@@ -196,7 +242,7 @@
 
   form { 
       label {
-      margin:20px 0;
+      margin:20px 0 0 0;
       position:relative;
       display:inline-block;
     }
@@ -215,14 +261,20 @@
 
     input {
       padding:10px;
-      background: #728da6;;
+      //background: #728da6;;
+      background: var(--blue-grey-dark);
+      border: 2px solid var(--blue-grey-dark);
       border-radius: .2em;
-      border: 2px solid transparent;
+      //border: 2px solid transparent;
+    }
+
+    input:hover {
+      border: 2px solid var(--blue-grey-darkest);
     }
 
     input:focus {
       background: var(--blue-grey-lighter);
-      border: 2px solid var(--blue-grey-dark);
+      border: 2px solid var(--blue-grey-darkest);
       box-shadow: 0px 0px 2px var(--blue-grey-darker) inset;
     }
 
