@@ -359,34 +359,53 @@
             favorited: true,
             album: 'Mix one',
             artist: 'Lemongrass',
-            track: 'Lemongrass-Sunrise-on-Fujijama'},
+            track: 'Lemongrass-Sunrise-on-Fujijama.mp3'},
           { id: 2,
             liked: false,
             favorited: true,
             album: 'Mix one',
             artist: 'Tommy McCook & Prophets',
-            track: '1976_Tommy_McCook_Prophets_Death_Trap'},
+            track: '1976_Tommy_McCook_Prophets_Death_Trap.mp3'},
           { id: 3,
             liked: true,
             favorited: true,
             album: 'Mix one',
             artist: 'The Clash',
-            track: 'The clash - bankrobber_dub (the Original  Black Market Clash Version)'},
+            track: 'The clash - bankrobber_dub (the Original  Black Market Clash Version).mp3'},
           { id: 4,
             liked: false,
             favorited: true,
             album: 'Mix one',
             artist: 'Miles Davis',
-            track: 'Miles Davis - So What'},
+            track: 'Miles Davis - So What.mp3'},
           { id: 5,
             liked: false,
             favorited: true,
             album: 'Mix one',
             artist: 'Neu',
-            track: 'Neu - Hallogallo'},
+            track: 'Neu - Hallogallo.mp3'},
         ],
+        advertising: [
+          { id: 1,
+            advFrequency: 260,
+            advType: 0,
+            advPriority: 0,
+            advActive: true,
+            track: 'Reklama1.mp3'},
+          { id: 2,
+            advNr: 3,
+            advType: 1,
+            advPriority: 1,
+            advActive: true,
+            track: 'Reklama1.mp3'},
+        ],
+        advertisingFrequency: 36,
+        totalTime: 0,
         currentTrack: {},
-        trackId: 0
+        trackId: 0,
+        currentAdv: {},
+        advertisingId: 0,
+        totalTracks: 0,
       }
     },
 
@@ -425,22 +444,20 @@
       },
 
       getAudioUrl (track) {
-        return require('../assets/audio/' + track + '.mp3')
+        //return require('../assets/audio/' + track + '.mp3')
+        return require('../assets/audio/' + track )
       },
 
       play (audio) {
-        this.isPlaying = true;
-        this.playing = true;
-        //console.log(parseInt(Math.round(this.track.duration)));
-        //await audio.load();
-        audio.play();
-/*         await audio.addEventListener("loadedmetadata", function() {
-          console.log("Audio data loaded");
-          this.durationSeconds = Math.round(this.duration);
-        }); */
-
-        //this.durationSeconds = parseInt(Math.round(this.track.duration));
-        
+        if (this.checkAdverising()) {
+          this.playAdv(this.checkAdverising())
+          audio.play();
+        } else {
+          this.isPlaying = true;
+          this.playing = true;
+          this.trackId += 1;
+          audio.play();
+        }
       },
 
       pause (audio) {
@@ -454,6 +471,33 @@
         }
       },
 
+      checkAdverising() {
+        if (this.advertising.length) {
+          let hasAdv ;
+          console.log(this.advertising[this.advertisingId])
+          this.currentAdv = this.advertising[this.advertisingId];
+          if (this.currentAdv.type === 0) {
+            this.currentAdv.advFrequency <= this.totalTime ? hasAdv = this.currentAdv.id : '';
+          } else if (this.currentAdv.type === 1) {
+            this.currentAdv.advNr <= this.totalTracks ? hasAdv = this.currentAdv.id : '';
+          }
+          this.totalTime += this.durationSeconds;
+          this.totalTracks += 1;
+          this.advertisingId += 1;
+          console.log(hasAdv)
+          return hasAdv;
+        }
+      },
+
+      async playAdv(advId) {
+        this.track = new Audio(this.getAudioUrl(this.advertising[advId].track));
+        this.audio = this.getAudioUrl(this.advertising[advId].track);
+        
+        await this.track.addEventListener('timeupdate', this.update);
+        //this.volume(this.volumeAmount);
+        //this.currentAdv = this.advertising[advId]
+      },
+
       seek (e) {
         if (!this.loaded) return;
         const el = e.target.getBoundingClientRect();
@@ -463,19 +507,15 @@
       },
 
       update () {
-/*         console.log(finished)
-        let finished = e
-        if(finished) {
-          this.nextTrack()
-        } */
         this.durationSeconds = Math.round(this.track.duration);
         this.currentSeconds = Math.round(this.track.currentTime);
         this.remainSeconds = Math.round(this.track.duration - this.track.currentTime);
         if (this.percentComplete === 100) {
           this.currentSeconds = 0;
           this.remainSeconds = 0;
-          this.playing = false;
-          this.isPlaying = false;
+          this.nextTrack();
+ /*          this.playing = false;
+          this.isPlaying = false; */
         }
       },
 
@@ -500,13 +540,33 @@
         this.currentTrack = this.tracks[trackId]
       },
 
-      nextTrack() {
+      forward() {
         this.pause(this.track);
         this.durationSeconds = 0;
-        let rr =this.trackId + 1
-        console.log(rr)
         this.selectTrack(this.trackId += 1);
         this.play(this.track);
+      },
+
+      nextTrack() {
+        if (this.checkAdverising()) {
+          this.playAdv(this.checkAdverising())
+          this.currentAdv.play();
+        } else {
+        this.pause(this.track);
+        this.durationSeconds = 0;
+        let trackIndex = this.tracks.findIndex(i => i.id === this.currentTrack.id);
+        //let trackIndex = this.tracks.indexOf(this.track);
+        //console.log(trackIndex)
+        if (this.tracks[trackIndex + 1]) {
+          console.log(trackIndex)
+          this.selectTrack(trackIndex + 1) 
+          this.play(this.track);
+        } else {
+          console.log('uuuuuu')
+          this.playing = false;
+          this.isPlaying = false;
+        }
+        }
       }
 
     },

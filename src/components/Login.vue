@@ -277,6 +277,7 @@ export default {
     background: linear-gradient(45deg, var(--blue-grey-darker), var(--blue-grey-dark));
     border-radius: .2em;
     color: var(--blue-grey-lighter);
+    box-shadow: 2px 2px 5px var(--blue-grey-darkest);
   }
 
   .form__item {
@@ -322,14 +323,14 @@ export default {
   }
 
   form { 
-      label {
+    label {
       margin:20px 0 0 0;
       position:relative;
       display:inline-block;
     }
     
     label > span {
-      padding:10px;
+      padding:10px 20px;
       pointer-events: none;
       position:absolute;
       left:0;

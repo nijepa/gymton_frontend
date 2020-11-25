@@ -215,7 +215,9 @@
   }
 
   .frm__btn {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1em;
     padding: 1em;
   }
 
@@ -248,7 +250,7 @@
     }
     
     label > span {
-      padding:10px;
+      padding:10px 20px;
       pointer-events: none;
       position:absolute;
       left:0;
