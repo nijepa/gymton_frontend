@@ -707,8 +707,9 @@
   }
 
   .album__hovered {
-    margin: auto;
+    //margin: auto;
     width: 50%;
+    z-index: 55;
   }
 
   .hoop {

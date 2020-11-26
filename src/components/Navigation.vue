@@ -142,13 +142,13 @@
         <li class="nav__item_break">
           <a>|</a></li>
         <li>
-          <router-link to="/play">About</router-link>
+          <router-link to="/play">Play</router-link>
           <!-- <a href="#" class="nav__item nav__item_due">about</a> -->
         </li>
         <li class="nav__item_break">
           <a>|</a></li>
         <li>
-          <router-link to="/upload">Upload</router-link>
+          <router-link to="/upload">About</router-link>
         </li>
       </ul>
     </nav>
@@ -190,10 +190,14 @@
             },
             {
               id: 2,
-              value: "Favorites"
+              value: "Upload"
             },
             {
               id: 3,
+              value: "Favorites"
+            },
+            {
+              id: 4,
               value: "Log Out"
             }
           ],
@@ -212,9 +216,11 @@
         if (selectedOption.id === 1) {
           this.$router.push({ path: '/user' })
         } else if (selectedOption.id === 2) {
-          this.$router.push({ path: '/login' })
+          this.$router.push({ path: '/upload' })
+        } else if (selectedOption.id === 3) {
+          this.$router.push({ path: '/favorites' })
         } else {
-          this.$router.push({ path: '/play' })
+          this.$router.push({ path: '/login' })
         }
       },
     },
@@ -336,7 +342,7 @@
     font-weight: 400;
     font-size: 1em;
     padding: 0 .3em .1em .3em;
-    margin: 0 auto;
+    margin: 0 2em;
     height: 15px;
     display: block;
   }

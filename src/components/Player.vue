@@ -8,6 +8,16 @@
 <!--         <svg class="heart" background="var(--blue-grey-dark)" style="fill-opacity:1;fill-rule:evenodd;stroke:4b6077" viewBox="0 0 50 50" enable-background="new 0 0 50 50" width="30px" height="30px" >
           <path fill="var(--blue-grey-dark)" style="fill-opacity:1;fill-rule:evenodd;stroke:none" d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"/>
         </svg> -->
+
+<!--         <av-bars
+          :audio-src="getAudioUrl (currentTrack.track)"
+          :bar-color="['#FFF', '#a5d2fd', '#4b6077']"
+          :bar-width="25"
+          :caps-height="4"
+          :caps-color="'#2a3846'"
+          >
+        </av-bars> -->
+
         <a class="star-link" href="#">
           <svg class="star" :class="currentTrack.favorited ? 'favorited' : ''" width="44px" height="44px" viewBox="0 0 80 80"
                 id="svg2" sodipodi:docname="Empty Star.svg">
@@ -590,7 +600,7 @@
 </script>
 
 <style lang="scss">
-  @import "./volume";
+  //@import "./volume";
   .sound__controls {
     display: grid;
     grid-template-columns: repeat(3, auto);

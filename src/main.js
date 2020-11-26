@@ -5,6 +5,10 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import AudioVisual from 'vue-audio-visual'
+
+Vue.use(AudioVisual)
+
 new Vue({
   router,
   store,

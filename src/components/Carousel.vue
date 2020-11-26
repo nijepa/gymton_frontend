@@ -82,6 +82,6 @@ export default {
   .r__btn:hover {
     border: 2px solid var(--blue-grey-lighter);
     //color: var(--blue-grey-light);
-    font-size: 1em;
+    //font-size: 1em;
   }
 </style>

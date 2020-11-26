@@ -212,6 +212,7 @@
 
   .form__item:hover {
     background: var(--blue-grey-dark);
+    transform: translateX(.2em);
   }
 
   .frm__btn {

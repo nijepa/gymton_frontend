@@ -44,7 +44,7 @@ export default {
       borderRadius: 0,
       textColor: "#70baff",
       isExpanded: false,
-      loggedUser: 'Mrljo'
+      loggedUser: 'Double Body Gym'
     };
   },
   components: {},

@@ -134,7 +134,7 @@
         </a>
       </div>
 
-        <div class="form__item">
+        <div class="form__item user__item">
           <label>
             <input @focus="clearErrors" 
                     type="text" name="username" id="username" required placeholder=" ">
@@ -142,7 +142,7 @@
           </label>
         </div>
 
-        <div class="form__item">
+        <div class="form__item user__item">
           <label>
             <input @focus="clearErrors" 
                     type="email" name="email" id="email" required placeholder=" ">
@@ -291,6 +291,10 @@ export default {
 
   .form__item:hover {
     background: var(--blue-grey-dark);
+  }
+
+  .user__item {
+    padding: 1.5em;
   }
 
   .frm__btn {
