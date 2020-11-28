@@ -223,7 +223,7 @@
       <h2 class="track__heading">{{ currentGenre.name }}</h2>
       <div class="album__conten">
         <div class="album__inf" v-for="album in selectAlbums" :key="album._id">
-          <svg height="30.000000pt" width="30.000000pt" viewBox="0 0 120 120" id="svg2">
+<!--           <svg height="30.000000pt" width="30.000000pt" viewBox="0 0 120 120" id="svg2">
             <defs id="defs3">
               <linearGradient id="linearGradient8157">
                 <stop id="stop8159" offset="0.0000000" style="stop-color:var(--blue-grey-darker);stop-opacity:1.0000000;"/>
@@ -253,6 +253,22 @@
                       style="fill:url(#linearGradient10466);fill-opacity:1.0000000;fill-rule:evenodd;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"/>
               </g>
             </g>
+          </svg> -->
+          <svg x="0px" y="0px" width="30" height="30"
+            viewBox="0 0 24.269 24.269" style="enable-background:new 0 0 24.269 24.269;" xml:space="preserve">
+          <g>
+            <path style="fill:var(--blue-grey-light);" d="M7.028,1.242v3.003c0.443-0.064,0.895-0.109,1.358-0.109c1.728,0,3.344,0.47,4.738,1.279h11.145
+              V1.242H7.028z"/>
+            <path style="fill:var(--blue-grey-light);" d="M17.538,11.208h6.73V7.033h-9.072C16.305,8.183,17.121,9.612,17.538,11.208z"/>
+            <path style="fill:var(--blue-grey-light);" d="M17.856,13.607c0,1.24-0.246,2.424-0.678,3.51h7.09v-4.174h-6.445
+              C17.838,13.163,17.856,13.383,17.856,13.607z"/>
+            <path style="fill:var(--blue-grey-light);" d="M9.374,23.028h14.895v-4.174H16.27C14.744,21.142,12.251,22.729,9.374,23.028z"/>
+            <path style="fill:var(--blue-grey-light);stroke:var(--blue-grey-darker);" d="M16.77,13.447c0-4.629-3.752-8.383-8.384-8.383S0,8.818,0,13.447c0,4.632,3.754,8.385,8.386,8.385
+              S16.77,18.079,16.77,13.447z M5.439,18.315c-0.21-0.849,0.512-1.764,1.617-2.038c0.5-0.123,0.986-0.1,1.395,0.046V6.942
+              c0,0,0.056-0.412,0.599-0.479c0,0-0.008,0.471,2.841,2.46c1.459,1.125,1.454,2.661,1.454,2.661
+              c-1.897-2.977-3.837-2.871-3.837-2.871l-0.025,8.906H9.48c-0.005,0.751-0.683,1.486-1.655,1.729
+              C6.72,19.625,5.562,19.099,5.439,18.315z"/>
+          </g>
           </svg>
           <svg class="pl" width="64px" height="48px" viewBox="0 0 480 480">
             <defs>

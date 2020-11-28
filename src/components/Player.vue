@@ -17,7 +17,6 @@
           :caps-color="'#2a3846'"
           >
         </av-bars> -->
-
         <a class="star-link" href="#">
           <svg class="star" :class="currentTrack.favorited ? 'favorited' : ''" width="44px" height="44px" viewBox="0 0 80 80"
                 id="svg2" sodipodi:docname="Empty Star.svg">
@@ -341,10 +340,12 @@
 
   export default {
     name: "Player",
+
     computed: {
       percentComplete () {
         return Math.round(this.currentSeconds / this.durationSeconds * 100);
       },
+
       computedWidth: function () {
         return this.width;
       }
@@ -409,12 +410,11 @@
             advActive: true,
             track: 'Reklama1.mp3'},
         ],
-        advertisingFrequency: 36,
-        totalTime: 0,
         currentTrack: {},
         trackId: 0,
         currentAdv: {},
         advertisingId: 0,
+        totalTime: 0,
         totalTracks: 0,
       }
     },
@@ -448,7 +448,6 @@
       },
 
       changeWidth: function (event) {
-        //alert('uu')
         this.width = this.volumeAmount;
         console.log(event)
       },
@@ -459,10 +458,16 @@
       },
 
       play (audio) {
-        if (this.checkAdverising()) {
-          this.playAdv(this.checkAdverising())
+        console.log('check adv ' + this.checkAdvertising())
+        if (this.checkAdvertising()) {
+          console.log('adv ')
+          this.playAdv(this.advertisingId)
+          this.isPlaying = true;
+          this.playing = true;
+          this.advertisingId += 1;
           audio.play();
         } else {
+          console.log('not adv')
           this.isPlaying = true;
           this.playing = true;
           this.trackId += 1;
@@ -481,28 +486,79 @@
         }
       },
 
-      checkAdverising() {
+      async nextTrack() {
+        console.log(this.checkAdvertising())
+        
+        if (this.checkAdvertising()) {
+          console.log(3)
+          this.playAdv(this.advertisingId)
+          this.advertisingId += 1;
+          this.track.play(); 
+          
+          //this.currentAdv.play();
+        } else {
+          console.log(4)
+          this.pause(this.track);
+          this.durationSeconds = 0;
+          let trackIndex = this.tracks.findIndex(i => i.id === this.currentTrack.id);
+          //let trackIndex = this.tracks.indexOf(this.track);
+          //console.log(trackIndex)
+          if (this.tracks[trackIndex + 1]) {
+            //console.log(trackIndex)
+            this.selectTrack(trackIndex + 1) 
+            await this.track.addEventListener('timeupdate', this.update);
+            this.play(this.track);
+          } else {
+            //console.log('uuuuuu')
+            this.playing = false;
+            this.isPlaying = false;
+          }
+        }
+      },
+
+      checkAdvertising() {
         if (this.advertising.length) {
           let hasAdv ;
-          console.log(this.advertising[this.advertisingId])
           this.currentAdv = this.advertising[this.advertisingId];
-          if (this.currentAdv.type === 0) {
+          hasAdv = this.typeAdvertising(this.currentAdv.advType);
+          /* if (this.currentAdv.type === 0) {
             this.currentAdv.advFrequency <= this.totalTime ? hasAdv = this.currentAdv.id : '';
+            this.advertisingId += 1;
           } else if (this.currentAdv.type === 1) {
             this.currentAdv.advNr <= this.totalTracks ? hasAdv = this.currentAdv.id : '';
-          }
+            this.advertisingId += 1;
+          } */
+          //this.currentTrack = this.advertising[this.advertaisingId];
           this.totalTime += this.durationSeconds;
           this.totalTracks += 1;
-          this.advertisingId += 1;
-          console.log(hasAdv)
           return hasAdv;
         }
       },
 
+      typeAdvertising(type) {
+        if (type === 0) {
+          if (this.currentAdv.advFrequency <= this.totalTime) {
+            //this.advertisingId += 1;
+            //return this.currentAdv.id
+            this.totalTime = 0;
+            return true;
+          }
+        } else if (type === 1) {
+          if (this.currentAdv.advNr <= this.totalTracks) {
+            //this.advertisingId += 1;
+            //return this.currentAdv.id;
+            this.totalTracks = 0;
+            return true;
+          }
+        }
+        return false;
+      },
+
       async playAdv(advId) {
+        
         this.track = new Audio(this.getAudioUrl(this.advertising[advId].track));
         this.audio = this.getAudioUrl(this.advertising[advId].track);
-        
+        console.log('connect adv')
         await this.track.addEventListener('timeupdate', this.update);
         //this.volume(this.volumeAmount);
         //this.currentAdv = this.advertising[advId]
@@ -512,7 +568,7 @@
         if (!this.loaded) return;
         const el = e.target.getBoundingClientRect();
         const seekPos = (e.clientX - el.left) / el.width;
-        //console.log(seekPos)
+        console.log(seekPos)
         this.track.currentTime = Math.round(this.track.duration * seekPos);
       },
 
@@ -557,27 +613,7 @@
         this.play(this.track);
       },
 
-      nextTrack() {
-        if (this.checkAdverising()) {
-          this.playAdv(this.checkAdverising())
-          this.currentAdv.play();
-        } else {
-        this.pause(this.track);
-        this.durationSeconds = 0;
-        let trackIndex = this.tracks.findIndex(i => i.id === this.currentTrack.id);
-        //let trackIndex = this.tracks.indexOf(this.track);
-        //console.log(trackIndex)
-        if (this.tracks[trackIndex + 1]) {
-          console.log(trackIndex)
-          this.selectTrack(trackIndex + 1) 
-          this.play(this.track);
-        } else {
-          console.log('uuuuuu')
-          this.playing = false;
-          this.isPlaying = false;
-        }
-        }
-      }
+      
 
     },
 
@@ -893,90 +929,7 @@
     color: var(--blue-grey-dark);
   }
 
-/* ********************************************* PROGRESS BAR ***************************************************** */
-  .progres {
-    grid-area: 3 / 2 / 4 / 3;
-    margin-bottom: 1em;
-    justify-self: baseline;
-  }
 
-  progress[value] {
-    width: 350px;
-    height: .4em;
-    border-radius: 1em;
-/*     background-image:
-      -webkit-linear-gradient(-45deg, 
-                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                              rgba(0,0, 0, .1) 66%, transparent 66%),
-      -webkit-linear-gradient(top, 
-                              rgba(255, 255, 255, .25), 
-                              rgba(0, 0, 0, .25)),
-      -webkit-linear-gradient(left, var(--blue-grey-lighter), #c4d6e2); */
-    background: transparent;
-    border: 1px solid var(--blue-grey-dark);
-    border-radius: 1em; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    background-size: 35px 20px, 100% 100%, 100% 100%;
-  }
-
-  progress[value]::-webkit-progress-value {
-    background-image:
-/*       -webkit-linear-gradient(-45deg, 
-                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                              rgba(0,0, 0, .1) 66%, transparent 66%),
-      -webkit-linear-gradient(top, 
-                              rgba(255, 255, 255, .25), 
-                              rgba(0, 0, 0, .25)), */
-      -webkit-linear-gradient(left, var(--blue-grey-darker), var(--blue-grey-lighter));
-
-    border-radius: 2px; 
-    //background-size: 35px 20px, 100% 100%, 100% 100%;
-  }
-
-  progress[value]::-moz-progress-bar { 
-    background-color: #eee;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    background-image:
-/*       -moz-linear-gradient(
-        135deg, 
-        transparent 33%, 
-        rgba(0, 0, 0, 0.1) 33%, 
-        rgba(0, 0, 0, 0.1) 66%, 
-        transparent 66% 
-      ),
-      -moz-linear-gradient(
-        top, 
-        rgba(255, 255, 255, 0.25), 
-        rgba(0, 0, 0, 0.25)
-      ), */
-      -moz-linear-gradient(
-        left, 
-        var(--blue-grey-darker),
-        var(--blue-grey-lighter)
-      );
-
-    border-radius: 2px; 
-    //background-size: 35px 20px, 100% 100%, 100% 100%; 
-  }
-
-/*   progress[value]::-webkit-progress-value::before {
-    content: '80%';
-    position: absolute;
-    right: 0;
-    top: -125%;
-  }
-
-  progress[value]::-webkit-progress-value::after {
-    content: '';
-    width: 6px;
-    height: 6px;
-    position: absolute;
-    border-radius: 100%;
-    right: 7px;
-    top: 7px;
-    background-color: white;
-  } */
 
   .time {
     display: flex;

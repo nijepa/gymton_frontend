@@ -160,7 +160,27 @@
       <dropdown
         :config="config"
         @setSelectedOption="setNewSelectedOption($event);"
-      ></dropdown>
+      >
+      <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+          <g id="Layer_1">
+            <g>
+              <circle class="st10" cx="32" cy="32" r="32"/>
+            </g>
+            <g class="st11">
+              <g>
+                <path class="st12" d="M48,32c0-8.8-7.2-16-16-16c-7.5,0-13.8,5.2-15.5,12.1C11.7,28.9,8,33,8,38c0,5.5,4.5,10,10,10h8     c1.1,0,2-0.9,2-2v-5.5c0-0.8-0.7-1.5-1.5-1.5h-3.1c-1.5,0-1.9-1-0.9-2.2l7.7-9.8c1-1.2,2.6-1.2,3.5,0l7.7,9.8     c1,1.2,0.6,2.2-0.9,2.2h-3.1c-0.8,0-1.5,0.7-1.5,1.5V46c0,1.1,0.9,2,2,2h10c4.4,0,8-3.6,8-8S52.4,32,48,32z"/>
+              </g>
+            </g>
+            <g>
+              <g>
+                <path class="st13" d="M48,30c0-8.8-7.2-16-16-16c-7.5,0-13.8,5.2-15.5,12.1C11.7,26.9,8,31,8,36c0,5.5,4.5,10,10,10h8     c1.1,0,2-0.9,2-2v-5.5c0-0.8-0.7-1.5-1.5-1.5h-3.1c-1.5,0-1.9-1-0.9-2.2l7.7-9.8c1-1.2,2.6-1.2,3.5,0l7.7,9.8     c1,1.2,0.6,2.2-0.9,2.2h-3.1c-0.8,0-1.5,0.7-1.5,1.5V44c0,1.1,0.9,2,2,2h10c4.4,0,8-3.6,8-8S52.4,30,48,30z"/>
+              </g>
+            </g>
+          </g>
+          <g id="Layer_2">
+          </g>
+        </svg> 
+      </dropdown>
     </div>
     
   </div>
@@ -187,18 +207,103 @@
             {
               id: 1,
               value: "Profile",
+              pic: ` <svg class="user__pic"  width="34" height="34" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                      <g id="Layer_1">
+                        <g>
+                          <circle class="st10" cx="32" cy="32" r="32"/>
+                        </g>
+                        <g class="st11">
+                          <g>
+                            <path class="st12" d="M43.9,47.5c-3.8-1.7-5.2-4.2-5.6-6.5c2.8-2.2,4.9-5.8,6.1-9.6c1.2-1.6,2-3.2,2-4.6c0-1-0.3-1.6-1-2.2     c-0.2-8.1-5.9-14.6-13-14.7c-0.1,0-0.1,0-0.2,0c0,0,0,0-0.1,0c-7.1,0-12.8,6.4-13.1,14.4c-0.9,0.5-1.4,1.3-1.4,2.5     c0,1.6,1,3.6,2.7,5.4c1.2,3.3,3.1,6.4,5.5,8.4c-0.4,2.3-1.7,5-5.7,6.8c-2.2,0.9-6.1,1.8-7.8,2.6C16.6,55,24.9,58,31.9,58l0.1,0     c0,0,0,0,0,0c7,0,15.3-3,19.7-7.8C50,49.3,46.1,48.5,43.9,47.5z"/>
+                          </g>
+                        </g>
+                        <g>
+                          <g>
+                            <path class="st13" d="M43.9,45.5c-3.8-1.7-5.2-4.2-5.6-6.5c2.8-2.2,4.9-5.8,6.1-9.6c1.2-1.6,2-3.2,2-4.6c0-1-0.3-1.6-1-2.2     c-0.2-8.1-5.9-14.6-13-14.7c-0.1,0-0.1,0-0.2,0c0,0,0,0-0.1,0C25.1,8,19.4,14.4,19,22.4c-0.9,0.5-1.4,1.3-1.4,2.5     c0,1.6,1,3.6,2.7,5.4c1.2,3.3,3.1,6.4,5.5,8.4c-0.4,2.3-1.7,5-5.7,6.8c-2.2,0.9-6.1,1.8-7.8,2.6C16.6,53,24.9,56,31.9,56l0.1,0     c0,0,0,0,0,0c7,0,15.3-3,19.7-7.8C50,47.3,46.1,46.5,43.9,45.5z"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g id="Layer_2">
+                      </g>
+                    </svg>`,
             },
             {
               id: 2,
-              value: "Upload"
+              value: "Upload",
+              pic: `<svg x="0px" y="0px" width="34" height="34" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                      <g id="Layer_1">
+                        <g>
+                          <circle class="st10" cx="32" cy="32" r="32"/>
+                        </g>
+                        <g class="st11">
+                          <g>
+                            <path class="st12" d="M48,32c0-8.8-7.2-16-16-16c-7.5,0-13.8,5.2-15.5,12.1C11.7,28.9,8,33,8,38c0,5.5,4.5,10,10,10h8     c1.1,0,2-0.9,2-2v-5.5c0-0.8-0.7-1.5-1.5-1.5h-3.1c-1.5,0-1.9-1-0.9-2.2l7.7-9.8c1-1.2,2.6-1.2,3.5,0l7.7,9.8     c1,1.2,0.6,2.2-0.9,2.2h-3.1c-0.8,0-1.5,0.7-1.5,1.5V46c0,1.1,0.9,2,2,2h10c4.4,0,8-3.6,8-8S52.4,32,48,32z"/>
+                          </g>
+                        </g>
+                        <g>
+                          <g>
+                            <path class="st13" d="M48,30c0-8.8-7.2-16-16-16c-7.5,0-13.8,5.2-15.5,12.1C11.7,26.9,8,31,8,36c0,5.5,4.5,10,10,10h8     c1.1,0,2-0.9,2-2v-5.5c0-0.8-0.7-1.5-1.5-1.5h-3.1c-1.5,0-1.9-1-0.9-2.2l7.7-9.8c1-1.2,2.6-1.2,3.5,0l7.7,9.8     c1,1.2,0.6,2.2-0.9,2.2h-3.1c-0.8,0-1.5,0.7-1.5,1.5V44c0,1.1,0.9,2,2,2h10c4.4,0,8-3.6,8-8S52.4,30,48,30z"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g id="Layer_2">
+                      </g>
+                    </svg>`,
             },
             {
               id: 3,
-              value: "Favorites"
+              value: "Favorites",
+              pic: `<svg class="star" width="34" height="34" x="34%" y="34%" viewBox="0 0 80 80"
+                          id="svg2" sodipodi:docname="Empty Star.svg">
+                      <defs id="defs4"/>
+                      <sodipodi:namedview id="base" pagecolor="none" bordercolor="var(--blue-grey-darkest)" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" 
+                                          objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.4678899" 
+                                          inkscape:cx="49.5" inkscape:cy="21.5" inkscape:document-units="px" inkscape:current-layer="layer1" 
+                                          width="64px" height="64px" showgrid="true" gridspacingx="2px" gridspacingy="2px" gridempspacing="4" 
+                                          inkscape:window-width="847" inkscape:window-height="582" inkscape:window-x="133" inkscape:window-y="72"/>
+                      <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+                        <path sodipodi:type="star" fill="none" stroke="var(--blue-grey-darkest)"
+                              style="fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" 
+                              id="path3651" sodipodi:sides="5" sodipodi:cx="31.934996" sodipodi:cy="32.065002" sodipodi:r1="24.493324" 
+                              sodipodi:r2="10.409663" sodipodi:arg1="0.9442689" sodipodi:arg2="1.5725874" inkscape:flatsided="false" 
+                              inkscape:rounded="2.4286129e-017" inkscape:randomized="0" 
+                              d="M 46.296296,51.906272 L 31.916351,42.474649 L 17.502712,51.8547 L 22.029072,35.264028 L 8.654054,24.454438 L 25.831443,23.632463 L 31.978866,7.5717174 L 38.068716,23.65438 L 55.243051,24.537884 L 41.829396,35.299492 L 46.296296,51.906272 z " 
+                              transform="matrix(0.986858,0,0,1.03704,0.471316,1.159472)"/>
+                      </g>
+                    </svg>`
             },
             {
               id: 4,
-              value: "Log Out"
+              value: "Log Out",
+              pic: `<svg  x="24" y="24" width="34" height="24"
+                      viewBox="0 0 280 280" style="enable-background:new 0 0 280 280;" xml:space="preserve">
+                    <g>
+                      <g id="XMLID_46_">
+                        <g>
+                          <path style="fill:none;" d="M167.717,142.069c3.55,0,6.43,2.88,6.43,6.43s-2.88,6.43-6.43,6.43h-103.4
+                            c-3.65,0-7,2.01-8.72,5.23c-1.73,3.22-1.54,7.12,0.49,10.16l11.51,17.27h-19.75l-26.06-39.09l26.06-39.09h19.75l-11.51,17.27
+                            c-2.03,3.04-2.22,6.94-0.49,10.16c1.72,3.22,5.07,5.23,8.72,5.23H167.717z"/>
+                          <path style="fill:none;" d="M154.849,26.139c67.47,0,122.36,54.89,122.36,122.36s-54.89,122.36-122.36,122.36
+                            c-22.9,0-44.9-6.25-64.16-18.15l12.04-19.54c14.64,8.37,31.11,12.75,48.22,12.75c53.71,0,97.42-43.7,97.42-97.42
+                            s-43.71-97.42-97.42-97.42c-17.11,0-33.58,4.38-48.22,12.75l-12.04-19.54C109.949,32.389,131.948,26.139,154.849,26.139z"/>
+                          <path style="fill:var(--blue-grey-darker);" d="M154.849,6.349c78.38,0,142.15,63.77,142.15,142.15s-63.77,142.15-142.15,142.15c-30.18,0-59.01-9.34-83.38-27.02
+                            c-4.19-3.04-5.33-8.8-2.62-13.21l22.33-36.22c1.45-2.35,3.8-3.98,6.51-4.52c2.7-0.53,5.5,0.08,7.73,1.7
+                            c13.3,9.65,29.04,14.75,45.53,14.75c42.8,0,77.63-34.82,77.63-77.63s-34.83-77.63-77.63-77.63c-16.49,0-32.23,5.1-45.53,14.75
+                            c-2.23,1.62-5.03,2.23-7.73,1.7c-2.71-0.54-5.06-2.17-6.51-4.52l-22.33-36.22c-2.71-4.41-1.57-10.17,2.62-13.21
+                            C95.839,15.689,124.669,6.349,154.849,6.349z M277.208,148.499c0-67.47-54.89-122.36-122.36-122.36
+                            c-22.9,0-44.9,6.25-64.16,18.15l12.04,19.54c14.64-8.37,31.11-12.75,48.22-12.75c53.71,0,97.42,43.7,97.42,97.42
+                            s-43.71,97.42-97.42,97.42c-17.11,0-33.58-4.38-48.22-12.75l-12.04,19.54c19.26,11.9,41.26,18.15,64.16,18.15
+                            C222.318,270.859,277.208,215.969,277.208,148.499z"/>
+                          <path style="fill:var(--blue-grey-darker);" d="M167.717,122.279c14.46,0,26.22,11.76,26.22,26.22c0,14.46-11.76,26.22-26.22,26.22h-84.91l11.51,17.27
+                            c2.03,3.04,2.21,6.94,0.49,10.16s-5.07,5.22-8.72,5.22h-43.54c-3.31,0-6.4-1.65-8.23-4.4l-32.66-48.98
+                            c-2.21-3.32-2.21-7.66,0-10.98l32.66-48.98c1.83-2.75,4.92-4.4,8.23-4.4h43.54c3.65,0,7,2,8.72,5.22s1.54,7.12-0.49,10.16
+                            l-11.51,17.27L167.717,122.279L167.717,122.279z M174.148,148.499c0-3.55-2.88-6.43-6.43-6.43h-103.4c-3.65,0-7-2.01-8.72-5.23
+                            c-1.73-3.22-1.54-7.12,0.49-10.16l11.51-17.27h-19.75l-26.06,39.09l26.06,39.09h19.75l-11.51-17.27
+                            c-2.03-3.04-2.22-6.94-0.49-10.16c1.72-3.22,5.07-5.23,8.72-5.23h103.4C171.269,154.929,174.148,152.049,174.148,148.499z"/>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>`
             }
           ],
           placeholder: this.setUser,
@@ -266,28 +371,28 @@
     font-weight: 400;
     font-size: 1.2em;
     //margin-right: 1em;
-  }
 
-  nav > ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    justify-content: center;
-    justify-items: center;
-    grid-column-gap: .5em;
-    margin: 0 auto;
-  }
+    ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      justify-content: center;
+      justify-items: center;
+      grid-column-gap: .5em;
+      margin: 0 auto;
+    
+      li {
+        position: static;
+        float: left;
 
-  nav > ul > li {
-    position: static;
-    float: left;
-  }
-
-  nav > ul > li > a {
-    color:var(--blue-grey-light);
-    text-decoration: none;
-    padding: 0 .3em .1em .3em;
-    border-radius: 2px;
+        a {
+          //color:var(--blue-grey-light);
+          text-decoration: none;
+          padding: 0 .3em .1em .3em;
+          border-radius: 2px;
+        }
+      }
+    }
   }
 
   nav > ul > li > a:hover {
@@ -331,20 +436,20 @@
     height: 32px;
     display: flex;
     align-self: center;
-    justify-content: left;
+    justify-content: center;
     z-index: 2;
-  }
-
-  .user__menu > a {
-    font-family: 'Play', sans-serif;
-    color:var(--blue-grey-light);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1em;
-    padding: 0 .3em .1em .3em;
-    margin: 0 2em;
-    height: 15px;
-    display: block;
+  
+    a {
+      font-family: 'Play', sans-serif;
+      color:var(--blue-grey-light);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1em;
+      padding: 0 .3em .1em .3em;
+      margin: 0 2em;
+      height: 15px;
+      display: block;
+    }
   }
 
   .user__menu > a:hover {

@@ -48,7 +48,8 @@
 
     a {
       font-weight: bold;
-      color: #2c3e50;
+      //color: #2c3e50;
+      color: var(--blue-grey-light);
 
       &.router-link-exact-active {
         color: var(--blue-grey-lighter);

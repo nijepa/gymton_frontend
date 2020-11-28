@@ -53,7 +53,7 @@
               </div>
             </form>
 
-            <div class="albums__list">
+            <div class="albums__upload__list">
               <div class="genre__choice">
                 <div class="genre__content genre__name" v-for="genre in genres" :key="genre.id"
                       @click="selectGenre(genre)" :class="genre.name === currentGenre.name ? 'genre__selected': ''">
@@ -448,6 +448,13 @@ export default {
     grid-row-gap: 1em;
   }
 
+  .albums__upload__list {
+    /* grid-area: 2 / 3 / 4 / 4; */
+    justify-self: left;
+    align-self: baseline;
+    width: 245px;
+}
+
   .album__title {
     display: grid;
     justify-content: stretch;
@@ -484,67 +491,6 @@ export default {
     grid-auto-flow: column;
     align-items: center;
   }
-
-  progress[value] {
-    width: 350px;
-    height: .4em;
-    border-radius: 1em;
-/*     background-image:
-      -webkit-linear-gradient(-45deg, 
-                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                              rgba(0,0, 0, .1) 66%, transparent 66%),
-      -webkit-linear-gradient(top, 
-                              rgba(255, 255, 255, .25), 
-                              rgba(0, 0, 0, .25)),
-      -webkit-linear-gradient(left, var(--blue-grey-lighter), #c4d6e2); */
-    background: transparent;
-    border: 1px solid var(--blue-grey-dark);
-    border-radius: 1em; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    background-size: 35px 20px, 100% 100%, 100% 100%;
-  }
-
-  progress[value]::-webkit-progress-value {
-    background-image:
-/*       -webkit-linear-gradient(-45deg, 
-                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                              rgba(0,0, 0, .1) 66%, transparent 66%),
-      -webkit-linear-gradient(top, 
-                              rgba(255, 255, 255, .25), 
-                              rgba(0, 0, 0, .25)), */
-      -webkit-linear-gradient(left, var(--blue-grey-darker), var(--blue-grey-lighter));
-
-    border-radius: 2px; 
-    //background-size: 35px 20px, 100% 100%, 100% 100%;
-  }
-
-  progress[value]::-moz-progress-bar { 
-    background-color: #eee;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    background-image:
-/*       -moz-linear-gradient(
-        135deg, 
-        transparent 33%, 
-        rgba(0, 0, 0, 0.1) 33%, 
-        rgba(0, 0, 0, 0.1) 66%, 
-        transparent 66% 
-      ),
-      -moz-linear-gradient(
-        top, 
-        rgba(255, 255, 255, 0.25), 
-        rgba(0, 0, 0, 0.25)
-      ), */
-      -moz-linear-gradient(
-        left, 
-        var(--blue-grey-darker),
-        var(--blue-grey-lighter)
-      );
-
-    border-radius: 2px; 
-    //background-size: 35px 20px, 100% 100%, 100% 100%; 
-  }
-
 
   .genre__choice {
     display: flex;

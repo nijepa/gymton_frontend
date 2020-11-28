@@ -4,6 +4,7 @@
     <user-header />
     <Profile v-if="getSelectedMenu === 1" />
     <Advertising v-if="getSelectedMenu === 2" />
+    <Mix v-if="getSelectedMenu === 3" />
     <Footer />
   </div>
 </template>
@@ -15,6 +16,7 @@ import Footer from '@/components/Footer.vue'
 import UserHeader from "@/components/UserHeader.vue";
 import Profile from "@/components/Profile.vue";
 import Advertising from "@/components/Advertising.vue";
+import Mix from "@/components/Mix.vue";
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
@@ -24,7 +26,8 @@ export default {
     Footer,
     UserHeader,
     Profile,
-    Advertising
+    Advertising,
+    Mix
   },
   computed: {
       ...mapGetters([ 'getSelectedMenu' ]),

@@ -22,7 +22,8 @@
         class="option" :key="option.id"
         @click="setCurrentSelectedOption(option);"
       >
-        {{ option.value }}
+        <div v-html="option.pic" />
+        <span>{{ option.value }}</span>
       </div>
     </div>
   </div>
