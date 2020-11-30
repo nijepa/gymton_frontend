@@ -458,21 +458,21 @@
       },
 
       play (audio) {
-        console.log('check adv ' + this.checkAdvertising())
+  /*        console.log('ima reklame ' )
         if (this.checkAdvertising()) {
-          console.log('adv ')
+          console.log('ima')
           this.playAdv(this.advertisingId)
           this.isPlaying = true;
           this.playing = true;
           this.advertisingId += 1;
           audio.play();
-        } else {
-          console.log('not adv')
+        } else {   */
+          console.log('nema')
           this.isPlaying = true;
           this.playing = true;
-          this.trackId += 1;
+          this.trackId = this.tracks.findIndex(i => i.id === this.currentTrack.id);
           audio.play();
-        }
+        //}
       },
 
       pause (audio) {
@@ -486,39 +486,53 @@
         }
       },
 
-      async nextTrack() {
-        console.log(this.checkAdvertising())
-        
+      nextTrack() {
+        console.log('sledeca pesma ima li reklame ')
         if (this.checkAdvertising()) {
-          console.log(3)
+          console.log('opet ima')
+          this.pause(this.track);
+          this.durationSeconds = 0;
           this.playAdv(this.advertisingId)
-          this.advertisingId += 1;
-          this.track.play(); 
-          
+          //this.track.play(); 
+          this.play(this.track);
+          this.totalTracks = 0;
+          this.totalTime = 0;
+          this.trackId += 1;
+          this.currentTrack = this.tracks[this.trackId]
           //this.currentAdv.play();
         } else {
-          console.log(4)
+          console.log('opet nema')
+          this.totalTracks += 1;
+          this.totalTime += this.durationSeconds;
           this.pause(this.track);
           this.durationSeconds = 0;
           let trackIndex = this.tracks.findIndex(i => i.id === this.currentTrack.id);
           //let trackIndex = this.tracks.indexOf(this.track);
           //console.log(trackIndex)
+          this.playStart = true;
           if (this.tracks[trackIndex + 1]) {
             //console.log(trackIndex)
-            this.selectTrack(trackIndex + 1) 
-            await this.track.addEventListener('timeupdate', this.update);
+            this.selectTrack(trackIndex + 1);
             this.play(this.track);
+            this.trackId += 1;
+            this.currentTrack = this.tracks[trackIndex + 1]
           } else {
             //console.log('uuuuuu')
-            this.playing = false;
-            this.isPlaying = false;
+            this.selectTrack(0);
+            this.play(this.track);
+            //this.playing = false;
+            //this.isPlaying = false;
           }
+          
         }
       },
 
       checkAdvertising() {
         if (this.advertising.length) {
           let hasAdv ;
+          if (!this.advertising[this.advertisingId]) {
+            this.advertisingId = 0
+          }
           this.currentAdv = this.advertising[this.advertisingId];
           hasAdv = this.typeAdvertising(this.currentAdv.advType);
           /* if (this.currentAdv.type === 0) {
@@ -528,9 +542,9 @@
             this.currentAdv.advNr <= this.totalTracks ? hasAdv = this.currentAdv.id : '';
             this.advertisingId += 1;
           } */
-          //this.currentTrack = this.advertising[this.advertaisingId];
-          this.totalTime += this.durationSeconds;
-          this.totalTracks += 1;
+          //this.totalTime += this.durationSeconds;
+          //this.totalTracks += 1;
+          console.log('puštaj reklamu ' +  hasAdv)
           return hasAdv;
         }
       },
@@ -538,30 +552,38 @@
       typeAdvertising(type) {
         if (type === 0) {
           if (this.currentAdv.advFrequency <= this.totalTime) {
+            console.log('na vreme ide')
             //this.advertisingId += 1;
+            //this.totalTime += this.durationSeconds;
+            //this.totalTracks += 1;
             //return this.currentAdv.id
-            this.totalTime = 0;
             return true;
           }
         } else if (type === 1) {
           if (this.currentAdv.advNr <= this.totalTracks) {
+            console.log('na pesme ide')
             //this.advertisingId += 1;
+            //this.totalTime += this.durationSeconds;
+            //this.totalTracks += 1;
             //return this.currentAdv.id;
-            this.totalTracks = 0;
             return true;
           }
         }
         return false;
       },
 
-      async playAdv(advId) {
-        
+      async playAdv (advId) {
+        console.log(this.advertising[advId])
+        if (!this.advertising[advId]) { this.advId = 0 }
         this.track = new Audio(this.getAudioUrl(this.advertising[advId].track));
         this.audio = this.getAudioUrl(this.advertising[advId].track);
-        console.log('connect adv')
+      
         await this.track.addEventListener('timeupdate', this.update);
+        //this.totalTime += this.durationSeconds;
         //this.volume(this.volumeAmount);
         //this.currentAdv = this.advertising[advId]
+        this.currentTrack = this.advertising[advId];
+        this.advertisingId += 1;
       },
 
       seek (e) {
@@ -573,6 +595,7 @@
       },
 
       update () {
+        //console.log(e);
         this.durationSeconds = Math.round(this.track.duration);
         this.currentSeconds = Math.round(this.track.currentTime);
         this.remainSeconds = Math.round(this.track.duration - this.track.currentTime);
@@ -612,9 +635,6 @@
         this.selectTrack(this.trackId += 1);
         this.play(this.track);
       },
-
-      
-
     },
 
     watch: {

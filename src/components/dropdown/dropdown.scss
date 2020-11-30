@@ -95,6 +95,9 @@ $option-padding: 4px 10px;
       border-radius: 0 0 var(--main-el-border-radius)
         var(--main-el-border-radius);
     }
+    span {
+      margin-left: .5em;
+    }
   }
 }
 .dropdown.expanded {
