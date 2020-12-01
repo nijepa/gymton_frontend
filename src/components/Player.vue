@@ -411,6 +411,7 @@
             track: 'Reklama1.mp3'},
         ],
         currentTrack: {},
+        beforeAdvTrack: {},
         trackId: 0,
         currentAdv: {},
         advertisingId: 0,
@@ -491,6 +492,7 @@
         if (this.checkAdvertising()) {
           console.log('opet ima')
           this.pause(this.track);
+          this.beforeAdvTrack = this.currentTrack;
           this.durationSeconds = 0;
           this.playAdv(this.advertisingId)
           //this.track.play(); 
@@ -504,20 +506,21 @@
           console.log('opet nema')
           this.totalTracks += 1;
           this.totalTime += this.durationSeconds;
+          if (this.beforeAdvTrack.id) {
+            this.currentTrack = this.beforeAdvTrack;
+            this.beforeAdvTrack = {};
+          }
           this.pause(this.track);
           this.durationSeconds = 0;
           let trackIndex = this.tracks.findIndex(i => i.id === this.currentTrack.id);
-          //let trackIndex = this.tracks.indexOf(this.track);
-          //console.log(trackIndex)
           this.playStart = true;
           if (this.tracks[trackIndex + 1]) {
-            //console.log(trackIndex)
             this.selectTrack(trackIndex + 1);
+            //this.selectTrack(this.currentTrack.id);
             this.play(this.track);
             this.trackId += 1;
             this.currentTrack = this.tracks[trackIndex + 1]
           } else {
-            //console.log('uuuuuu')
             this.selectTrack(0);
             this.play(this.track);
             //this.playing = false;
@@ -535,15 +538,6 @@
           }
           this.currentAdv = this.advertising[this.advertisingId];
           hasAdv = this.typeAdvertising(this.currentAdv.advType);
-          /* if (this.currentAdv.type === 0) {
-            this.currentAdv.advFrequency <= this.totalTime ? hasAdv = this.currentAdv.id : '';
-            this.advertisingId += 1;
-          } else if (this.currentAdv.type === 1) {
-            this.currentAdv.advNr <= this.totalTracks ? hasAdv = this.currentAdv.id : '';
-            this.advertisingId += 1;
-          } */
-          //this.totalTime += this.durationSeconds;
-          //this.totalTracks += 1;
           console.log('puštaj reklamu ' +  hasAdv)
           return hasAdv;
         }
@@ -553,19 +547,11 @@
         if (type === 0) {
           if (this.currentAdv.advFrequency <= this.totalTime) {
             console.log('na vreme ide')
-            //this.advertisingId += 1;
-            //this.totalTime += this.durationSeconds;
-            //this.totalTracks += 1;
-            //return this.currentAdv.id
             return true;
           }
         } else if (type === 1) {
           if (this.currentAdv.advNr <= this.totalTracks) {
             console.log('na pesme ide')
-            //this.advertisingId += 1;
-            //this.totalTime += this.durationSeconds;
-            //this.totalTracks += 1;
-            //return this.currentAdv.id;
             return true;
           }
         }
@@ -577,11 +563,7 @@
         if (!this.advertising[advId]) { this.advId = 0 }
         this.track = new Audio(this.getAudioUrl(this.advertising[advId].track));
         this.audio = this.getAudioUrl(this.advertising[advId].track);
-      
         await this.track.addEventListener('timeupdate', this.update);
-        //this.totalTime += this.durationSeconds;
-        //this.volume(this.volumeAmount);
-        //this.currentAdv = this.advertising[advId]
         this.currentTrack = this.advertising[advId];
         this.advertisingId += 1;
       },
