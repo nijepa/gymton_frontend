@@ -402,12 +402,14 @@
             advType: 0,
             advPriority: 0,
             advActive: true,
+            artist: 'jedan',
             track: 'Reklama1.mp3'},
           { id: 2,
             advNr: 3,
             advType: 1,
             advPriority: 1,
             advActive: true,
+            artist: 'dva',
             track: 'Reklama1.mp3'},
         ],
         currentTrack: {},
@@ -471,7 +473,9 @@
           console.log('nema')
           this.isPlaying = true;
           this.playing = true;
-          this.trackId = this.tracks.findIndex(i => i.id === this.currentTrack.id);
+          if (this.currentTrack) {
+            this.trackId = this.tracks.findIndex(i => i.id === this.currentTrack.id);
+          }
           audio.play();
         //}
       },
@@ -564,6 +568,7 @@
         this.track = new Audio(this.getAudioUrl(this.advertising[advId].track));
         this.audio = this.getAudioUrl(this.advertising[advId].track);
         await this.track.addEventListener('timeupdate', this.update);
+        this.volume(this.volumeAmount);
         this.currentTrack = this.advertising[advId];
         this.advertisingId += 1;
       },
