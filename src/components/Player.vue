@@ -839,8 +839,10 @@
 
   .volume__amount {
     position: relative;
-    width: 200px;
+    width: 180px;
     height: .5em;
+    margin: 0;
+    left: -.8em;
   }
 
   .slidecontainer {
@@ -913,7 +915,7 @@
   }
 
   .sound-high {
-    margin-left: 1em;
+    /*margin-left: 1em;*/
   }
 
   .down,
