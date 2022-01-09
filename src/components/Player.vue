@@ -842,7 +842,7 @@
     width: 180px;
     height: .5em;
     margin: 0;
-    left: -.8em;
+    left: -0.5em;
   }
 
   .slidecontainer {
